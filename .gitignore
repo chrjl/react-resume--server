@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# subprojects tracked in other repositories
+packages/
+docs/

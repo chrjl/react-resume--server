@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+@media print {
+  #app-bar,
+  #debug-area {
+    display: none;
+  }
+}

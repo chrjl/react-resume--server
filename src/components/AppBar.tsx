@@ -8,7 +8,7 @@ export default function AppBar({ setAppContext }: AppBarProps) {
   return (
     <>
       <form
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
 
           const form = e.target as HTMLFormElement;
@@ -16,13 +16,21 @@ export default function AppBar({ setAppContext }: AppBarProps) {
           try {
             // update source
             switch (form.source.value) {
-              case 'url':
+              case 'url': {
+                const url = form.url.value;
+
+                const text = await fetch(url);
+                const raw: object = await text.json();
+
                 setAppContext((prevAppContext) => ({
                   ...prevAppContext,
                   source: 'url',
-                  path: form.url.value,
+                  path: url,
+                  raw,
                 }));
+
                 break;
+              }
 
               case 'file':
                 setAppContext((prevAppContext) => ({

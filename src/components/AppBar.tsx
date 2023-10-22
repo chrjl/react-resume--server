@@ -32,13 +32,21 @@ export default function AppBar({ setAppContext }: AppBarProps) {
                 break;
               }
 
-              case 'file':
+              case 'file': {
+                const file: File = form.file.files[0];
+
+                const text = await file.text();
+                const raw: object = JSON.parse(text);
+
                 setAppContext((prevAppContext) => ({
                   ...prevAppContext,
                   source: 'file',
-                  path: form.file.files[0]?.name,
+                  path: file.name,
+                  raw,
                 }));
+
                 break;
+              }
 
               default:
                 break;
@@ -88,6 +96,10 @@ export default function AppBar({ setAppContext }: AppBarProps) {
         <button type="submit">submit</button>
         <button type="reset">reset</button>
       </form>
+
+      <div>sections</div>
+      <div>paper size</div>
+      <div>icons</div>
     </>
   );
 }

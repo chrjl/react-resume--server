@@ -1,4 +1,5 @@
 import { AppContextType } from '../contexts/AppContext';
+import parser from 'jsonresume-parser';
 
 interface AppBarProps {
   setAppContext: React.Dispatch<React.SetStateAction<AppContextType>>;
@@ -27,6 +28,7 @@ export default function AppBar({ setAppContext }: AppBarProps) {
                   source: 'url',
                   path: url,
                   raw,
+                  resume: parser(raw),
                 }));
 
                 break;
@@ -43,6 +45,7 @@ export default function AppBar({ setAppContext }: AppBarProps) {
                   source: 'file',
                   path: file.name,
                   raw,
+                  resume: parser(raw),
                 }));
 
                 break;

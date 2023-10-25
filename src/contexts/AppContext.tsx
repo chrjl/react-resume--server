@@ -1,10 +1,12 @@
 import { createContext } from 'react';
+import { ResumeObject } from 'jsonresume-parser';
 
 export const AppContext = createContext<AppContextType>({
   source: 'url',
   format: 'json',
   path: '',
   raw: {},
+  resume: {},
 });
 
 export interface AppContextType {
@@ -12,4 +14,5 @@ export interface AppContextType {
   path?: URL | string;
   format: 'json' | 'markdown';
   raw: object;
+  resume: ResumeObject;
 }

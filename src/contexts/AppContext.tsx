@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { ResumeObject } from 'jsonresume-parser';
+import { ResumeObject } from '@reactresume/jsonresume-parser';
 
 export const AppContext = createContext<AppContextType>({
   source: 'url',

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import sections from 'template';
+import sections from '@reactresume/template';
 import { AppContext } from '../contexts/AppContext';
 
 export default function Document() {

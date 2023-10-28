@@ -1,5 +1,5 @@
 import { AppContextType } from '../contexts/AppContext';
-import parser from 'jsonresume-parser';
+import parser from '@reactresume/jsonresume-parser';
 
 interface AppBarProps {
   setAppContext: React.Dispatch<React.SetStateAction<AppContextType>>;
@@ -9,6 +9,7 @@ export default function AppBar({ setAppContext }: AppBarProps) {
   return (
     <>
       <form
+        style={{ outline: 'solid' }}
         onSubmit={async (e) => {
           e.preventDefault();
 

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { AppContextType } from '../../contexts/AppContext';
 import parser from '@reactresume/jsonresume-parser';
+import sections from '@reactresume/template';
 
 interface AppBarProps {
   setAppContext: React.Dispatch<React.SetStateAction<AppContextType>>;
@@ -90,6 +91,18 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
         default:
           break;
       }
+
+      // update sections
+      setAppContext((appContext) => ({
+        ...appContext,
+        components: sections.map(({ id, Component }) => ({
+          id,
+          available: Boolean(id in appContext.resume && appContext.resume[id]),
+          component: appContext.resume[id] ? (
+            <Component data={appContext.resume[id]} />
+          ) : null,
+        })),
+      }));
 
       // update format
       setAppContext((prevAppContext) => ({

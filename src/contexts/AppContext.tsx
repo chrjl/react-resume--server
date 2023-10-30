@@ -5,8 +5,10 @@ export const AppContext = createContext<AppContextType>({
   source: 'url',
   format: 'json',
   path: '',
-  raw: {},
-  resume: {},
+  data: {
+    jsonresume: {},
+    parsed: {},
+  },
   components: [],
 });
 
@@ -14,8 +16,10 @@ export interface AppContextType {
   source: 'url' | 'file';
   path?: URL | string;
   format: 'json' | 'markdown';
-  raw: object;
-  resume: ResumeObject;
+  data: {
+    jsonresume: object;
+    parsed: ResumeObject;
+  };
   components: {
     id: string;
     available?: boolean;

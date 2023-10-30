@@ -52,20 +52,20 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
     const form = e.target as HTMLFormElement;
 
     try {
+      let jsonresume: object;
+
       // update source
       switch (form.source.value) {
         case 'url': {
           const url = form.url.value;
 
           const text = await fetch(url);
-          const raw: object = await text.json();
+          jsonresume = await text.json();
 
-          setAppContext((prevAppContext) => ({
-            ...prevAppContext,
+          setAppContext((appContext) => ({
+            ...appContext,
             source: 'url',
             path: url,
-            raw,
-            resume: parser(raw),
           }));
 
           break;
@@ -75,38 +75,35 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
           const file: File = form.file.files[0];
 
           const text = await file.text();
-          const raw: object = JSON.parse(text);
+          jsonresume = JSON.parse(text);
 
-          setAppContext((prevAppContext) => ({
-            ...prevAppContext,
+          setAppContext((appContext) => ({
+            ...appContext,
             source: 'file',
             path: file.name,
-            raw,
-            resume: parser(raw),
           }));
 
           break;
         }
 
         default:
-          break;
+          return;
       }
 
-      // update sections
+      const parsed = parser(jsonresume);
+
+      // update context after successfully receiving and parsing data
       setAppContext((appContext) => ({
         ...appContext,
+        data: {
+          jsonresume,
+          parsed,
+        },
         components: sections.map(({ id, Component }) => ({
           id,
-          available: Boolean(id in appContext.resume && appContext.resume[id]),
-          component: appContext.resume[id] ? (
-            <Component data={appContext.resume[id]} />
-          ) : null,
+          available: Boolean(id in parsed && parsed[id]),
+          component: parsed[id] ? <Component data={parsed[id]} /> : null,
         })),
-      }));
-
-      // update format
-      setAppContext((prevAppContext) => ({
-        ...prevAppContext,
         format: form.format.value,
       }));
     } catch (e) {

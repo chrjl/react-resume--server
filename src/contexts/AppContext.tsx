@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import React, { createContext } from 'react';
 import { ResumeObject } from '@reactresume/types';
 
 export const AppContext = createContext<AppContextType>({
@@ -7,6 +7,7 @@ export const AppContext = createContext<AppContextType>({
   path: '',
   raw: {},
   resume: {},
+  components: [],
 });
 
 export interface AppContextType {
@@ -15,4 +16,10 @@ export interface AppContextType {
   format: 'json' | 'markdown';
   raw: object;
   resume: ResumeObject;
+  components: {
+    id: string;
+    available?: boolean;
+    hidden?: boolean;
+    component: React.ReactNode;
+  }[];
 }

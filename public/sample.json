@@ -1,0 +1,171 @@
+{
+  "basics": {
+    "name": "John Doe",
+    "label": "Programmer",
+    "image": "",
+    "email": "john@example.com",
+    "phone": "(912) 555-4321",
+    "url": "https://johndoe.example.com",
+    "summary": "A summary of John Doe…",
+    "location": {
+      "address": "2712 Broadway St",
+      "postalCode": "CA 94115",
+      "city": "San Francisco",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "john",
+        "url": "https://twitter.example.com/john"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Company",
+      "position": "President",
+      "url": "https://company.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Consectetur corrupti nemo similique perspiciatis modi debitis illum incidunt? Id nisi perferendis repellat autem harum Aliquid error quas provident accusantium facilis! Accusantium doloribus molestiae consequuntur officiis harum. Recusandae odio laborum"
+    },
+    {
+      "name": "Company",
+      "position": "Intern",
+      "url": "https://company.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Adipisicing eos ipsum provident aperiam reprehenderit? Voluptas sit eligendi corporis sit sequi fugiat, natus Excepturi culpa tenetur aut autem nihil! Commodi amet quia nemo incidunt odit mollitia Nihil culpa modi",
+      "highlights": [
+        "Adipisicing quam sint molestiae officiis ut.",
+        "Eveniet praesentium id nam sequi minus perspiciatis!",
+        "Ea molestias iure nesciunt vitae odit.",
+        "In maxime aspernatur similique harum quod! Iure quis temporibus beatae sed"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Organization",
+      "position": "Volunteer",
+      "url": "https://organization.com/",
+      "startDate": "2012-01-01",
+      "endDate": "2013-01-01",
+      "summary": "Description…",
+      "highlights": ["Awarded 'Volunteer of the Month'"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University",
+      "url": "https://institution.com/",
+      "area": "Software Development",
+      "studyType": "Bachelor",
+      "startDate": "2011-01-01",
+      "endDate": "2013-01-01",
+      "score": "4.0",
+      "courses": ["DB1101 - Basic SQL"]
+    },
+    {
+      "institution": "University",
+      "url": "https://institution.com/",
+      "area": "Software Development",
+      "studyType": "Master",
+      "endDate": "2015-01-01"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Publication",
+      "publisher": "Company",
+      "releaseDate": "2014-10-01",
+      "url": "https://publication.com",
+      "summary": "Description…"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "name": "Being man's best friend",
+      "level": "Working on it",
+      "keywords": [
+        "Digging holes",
+        "Borking",
+        "Looking at things",
+        "Jumping on things",
+        "Rolling in the grass",
+        "Dog naps",
+        "Eating kibble"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Latin"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": ["Ferrets", "Unicorns"]
+    }
+  ],
+  "references": [
+    {
+      "name": "Jane Doe",
+      "reference": "Reference…"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project 1",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Consectetur voluptates vero delectus deleniti quaerat. Quibusdam aperiam similique aliquid nemo possimus.",
+      "highlights": [
+        "Temporibus vero cupiditate illo hic totam voluptate Eligendi placeat provident totam dolorem qui omnis.",
+        "Eos laborum qui cupiditate"
+      ],
+      "url": "https://project.example.com/",
+      "keywords": ["keyword1", "keyword2"]
+    },
+    {
+      "name": "Project 2",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Lorem omnis voluptatum harum architecto tempore deserunt? Dolore qui distinctio odio iste consequatur?",
+      "highlights": [
+        "Sapiente unde sint sunt veniam quisquam?",
+        "Natus ratione dicta quidem dolorum assumenda? Assumenda a esse possimus fugiat?"
+      ],
+      "url": "https://project.example.com/",
+      "keywords": ["keyword1", "keyword2"]
+    }
+  ]
+}

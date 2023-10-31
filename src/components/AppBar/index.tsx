@@ -1,4 +1,5 @@
 import { AppContextType } from '../../contexts/AppContext';
+import styles from './AppBar.module.css';
 
 import DataSourceController from './DataSourceController';
 import SectionsController from './SectionsController';
@@ -9,7 +10,7 @@ interface AppBarProps {
 
 export default function AppBar({ setAppContext }: AppBarProps) {
   return (
-    <div>
+    <div className={styles.container}>
       <DataSourceController setAppContext={setAppContext} />
       <SectionsController setAppContext={setAppContext} />
       <div>paper size</div>

@@ -1,0 +1,14 @@
+.container {
+  & > * {
+    border: solid;
+    padding: 1em;
+    margin: 1em 0;
+    background-color: lightgray;
+  }
+
+  & h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 0.5em;
+  }
+}

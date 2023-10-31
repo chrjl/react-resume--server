@@ -29,7 +29,7 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
         <label>
           <input type="radio" name="source" value="url" defaultChecked />
           URL
-          <input type="text" id="url" />
+          <input type="text" id="url" defaultValue="sample.json" />
         </label>
 
         <br />

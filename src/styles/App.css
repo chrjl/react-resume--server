@@ -28,6 +28,11 @@ code {
   margin: 0 auto;
 }
 
+#document {
+  border: solid;
+  padding: 1em;
+}
+
 @media print {
   #app-bar,
   #debug-area {

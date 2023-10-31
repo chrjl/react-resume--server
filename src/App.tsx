@@ -21,13 +21,6 @@ export default function App() {
       <div id="document">
         <Document />
       </div>
-
-      <div id="debug-area">
-        <DebugArea
-          title="appContext"
-          text={JSON.stringify(appContext, null, 2)}
-        />
-      </div>
     </AppContext.Provider>
   );
 }

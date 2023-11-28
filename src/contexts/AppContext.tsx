@@ -10,6 +10,7 @@ export const AppContext = createContext<AppContextType>({
     parsed: {},
   },
   components: [],
+  control: {},
 });
 
 export interface AppContextType {
@@ -22,8 +23,11 @@ export interface AppContextType {
   };
   components: {
     id: string;
-    available?: boolean;
-    hidden?: boolean;
     component: React.ReactNode;
   }[];
+  control: {
+    [key: string]: {
+      hidden?: boolean;
+    };
+  };
 }

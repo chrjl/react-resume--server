@@ -122,9 +122,11 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
         },
         components: sections.map(({ id, Component }) => ({
           id,
-          available: Boolean(id in parsed && parsed[id]),
-          component: parsed[id] ? <Component data={parsed[id]} /> : null,
+          component: <Component data={parsed[id]} />,
         })),
+        control: Object.fromEntries(
+          sections.map(({ id }) => [id, { hidden: false }])
+        ),
         format: form.format.value,
       }));
     } catch (e) {

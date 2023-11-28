@@ -6,20 +6,20 @@ interface AppBarProps {
 }
 
 export default function SectionsController({ setAppContext }: AppBarProps) {
-  const { components } = useContext(AppContext);
+  const { components, control } = useContext(AppContext);
 
   return (
-    <form onChange={handleChange}>
+    <form>
       <h1>Sections</h1>
       <ul>
-        {components.map(({ id, available }, index) => (
+        {components.map(({ id }) => (
           <li key={id}>
             <label>
               <input
                 type="checkbox"
-                value={index}
-                disabled={!available}
-                defaultChecked={available}
+                value={id}
+                checked={!control[id].hidden}
+                onChange={handleChange}
               />
               {id}
             </label>
@@ -30,23 +30,16 @@ export default function SectionsController({ setAppContext }: AppBarProps) {
   );
 
   function handleChange(e: React.FormEvent) {
-    const { value } = e.target as HTMLInputElement;
-    const index = +value;
+    const { value, checked } = e.target as HTMLInputElement;
 
-    if (!Number.isInteger(index)) {
-      console.error('error in SectionsController change event handler');
-      return;
-    }
-
-    // toggle the 'hidden' attribute of the selected component
-    components[index] = {
-      ...components[index],
-      hidden: !components[index].hidden,
+    const updatedControl = {
+      ...control,
+      [value]: { hidden: !checked },
     };
 
     setAppContext((appContext) => ({
       ...appContext,
-      components,
+      control: updatedControl,
     }));
   }
 }

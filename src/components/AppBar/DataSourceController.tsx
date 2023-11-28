@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AppContextType } from '../../contexts/AppContext';
 import parser from '@reactresume/jsonresume-parser';
-import sections from '@reactresume/template';
+import templates from '@reactresume/template';
 
 interface AppBarProps {
   setAppContext: React.Dispatch<React.SetStateAction<AppContextType>>;
@@ -91,6 +91,27 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
       }
 
       const parsed = parser(jsonresume);
+
+      // only present sections that exist on both parser and templates
+      // warn about sections that only exist on one
+      const sections = templates.filter((template) =>
+        Object.keys(parsed).includes(template.id)
+      );
+
+      const sectionIds = sections.map((section) => section.id);
+      const templateIds = templates.map((template) => template.id);
+
+      const templatesOnly = templateIds.filter(
+        (id) => !sectionIds.includes(id)
+      );
+      const dataOnly = Object.keys(parsed).filter(
+        (id) => !sectionIds.includes(id)
+      );
+
+      templatesOnly.length &&
+        console.warn(`[${templatesOnly}] only exists in templates`);
+      dataOnly.length &&
+        console.warn(`[${dataOnly}] only exists in parsed data`);
 
       // update context after successfully receiving and parsing data
       setAppContext((appContext) => ({

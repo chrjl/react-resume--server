@@ -29,7 +29,7 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
         <label>
           <input type="radio" name="source" value="url" defaultChecked />
           URL
-          <input type="text" id="url" defaultValue="sample.json" />
+          <input type="text" id="url" defaultValue="resume.json" />
         </label>
 
         <br />
@@ -114,6 +114,9 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
         console.warn(`[${dataOnly}] only exists in parsed data`);
 
       // update context after successfully receiving and parsing data
+      const { name } = parsed.basics;
+      document.title = (name && `${name} | `) + 'Resume';
+
       setAppContext((appContext) => ({
         ...appContext,
         data: {

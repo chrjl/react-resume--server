@@ -2,29 +2,8 @@
   box-sizing: border-box;
 }
 
-:root {
-  --root-font: Arimo, Arial, Helvetica, sans-serif;
-  font-family: var(--root-font);
-}
-
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-a {
-  color: #2563eb;
-}
-
-code {
-  font-family: Cousine, 'Courier New', Courier, monospace;
-}
-
 #root {
-  max-width: 375px;
+  /* max-width: 375px; */
   margin: 0 auto;
 }
 

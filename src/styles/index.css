@@ -1,0 +1,20 @@
+:root {
+  --ui-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--ui-font);
+}
+
+strong {
+  font-weight: bold;
+}
+
+code {
+  font-family: monospace;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: #2563eb;
+}

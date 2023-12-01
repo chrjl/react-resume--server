@@ -19,3 +19,15 @@
     padding-bottom: 0.5em;
   }
 }
+
+.links {
+  text-align: center;
+
+  & a {
+    color: white;
+  }
+
+  & img {
+    height: 1.5em;
+  }
+}

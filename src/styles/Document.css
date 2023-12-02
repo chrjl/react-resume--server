@@ -1,0 +1,39 @@
+#document {
+  background-color: white;
+  font-size: 10pt;
+  white-space: pre-line;
+
+  & code {
+    font-family: monospace;
+    font-size: 9pt;
+    font-style: italic;
+  }
+
+  & section {
+    margin-top: 2rem;
+
+    & h1 {
+      font-size: 15pt;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+  }
+
+  & #basics {
+    margin-top: 0;
+
+    & h1 {
+      font-size: 22pt;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    & h2 {
+      font-size: 14pt;
+      font-weight: bold;
+      white-space: pre-line;
+      margin-top: 0.25em;
+      margin-bottom: 0.5em;
+    }
+  }
+}

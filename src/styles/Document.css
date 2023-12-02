@@ -63,4 +63,60 @@
       margin-bottom: 0.5em;
     }
   }
+
+  /* spacing */
+
+  & #skills {
+    margin-top: 1.5rem;
+  }
+
+  & #languages {
+    margin-top: 1rem;
+  }
+
+  & #education,
+  & #certificates {
+    & h1 {
+      margin-bottom: 0.25em;
+    }
+  }
+
+  /* grid card styling */
+
+  & #projects,
+  & #education,
+  & #certificates {
+    & .title {
+      font-size: 11pt;
+    }
+
+    & .subtitle {
+      font-size: 9pt;
+      letter-spacing: -0.035em;
+      color: #6b7280;
+    }
+
+    & .note {
+      font-size: 9pt;
+    }
+  }
+
+  /* stacked card styling */
+
+  & #experience {
+    & h1 {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  & #certificates {
+    margin-top: 1rem;
+  }
+
+  & #work,
+  & #experience {
+    & .title {
+      font-size: 13pt;
+    }
+  }
 }

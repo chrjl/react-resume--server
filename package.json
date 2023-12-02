@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/arimo": "^5.0.17",
+    "@fontsource/cousine": "^5.0.17",
+    "@fontsource/inter": "^5.0.15",
     "eslint-config-prettier": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

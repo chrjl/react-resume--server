@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { AppContextType } from '../../contexts/AppContext';
+import { JSONResumeObject } from '@reactresume/types';
 import parser from '@reactresume/jsonresume-parser';
 import templates from '@reactresume/template';
 
@@ -52,7 +53,7 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
     const form = e.target as HTMLFormElement;
 
     try {
-      let jsonresume: object;
+      let jsonresume: JSONResumeObject;
 
       // update source
       switch (form.source.value) {
@@ -114,7 +115,7 @@ export default function DataSourceController({ setAppContext }: AppBarProps) {
         console.warn(`[${dataOnly}] only exists in parsed data`);
 
       // update context after successfully receiving and parsing data
-      const { name } = parsed.basics;
+      const name = jsonresume?.basics?.name;
       document.title = (name && `${name} | `) + 'Resume';
 
       setAppContext((appContext) => ({

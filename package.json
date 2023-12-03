@@ -13,7 +13,7 @@
     "@fontsource/arimo": "^5.0.17",
     "@fontsource/cousine": "^5.0.17",
     "@fontsource/inter": "^5.0.15",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "@reactresume/jsonresume-parser": "workspace:*",
@@ -21,15 +21,15 @@
   },
   "devDependencies": {
     "@reactresume/types": "workspace*",
-    "@types/react": "^18.2.28",
-    "@types/react-dom": "^18.2.13",
-    "@typescript-eslint/eslint-plugin": "^6.8.0",
-    "@typescript-eslint/parser": "^6.8.0",
-    "@vitejs/plugin-react": "^4.1.0",
-    "eslint": "^8.51.0",
+    "@types/react": "^18.2.41",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "typescript": "^5.2.2",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "typescript": "^5.3.2",
     "vite": "^4.4.11"
   }
 }

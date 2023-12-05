@@ -2,15 +2,11 @@
   "basics": {
     "name": "John Doe",
     "label": "Programmer",
-    "image": "",
     "email": "john@example.com",
     "phone": "(912) 555-4321",
     "url": "https://johndoe.example.com",
-    "summary": "A summary of John Doe…",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
+      "city": "Los Angeles",
       "countryCode": "US",
       "region": "California"
     },
@@ -26,6 +22,7 @@
     {
       "name": "Company",
       "position": "President",
+      "location": "Los Angeles, CA",
       "url": "https://company.com",
       "startDate": "2013-01-01",
       "endDate": "2014-01-01",
@@ -33,10 +30,12 @@
     },
     {
       "name": "Company",
-      "position": "Intern",
+      "position": "Position",
+      "location": "Location",
+      "department": "Department",
       "url": "https://company.com",
-      "startDate": "2013-01-01",
-      "endDate": "2014-01-01",
+      "startDate": "«start date»",
+      "endDate": "«end date»",
       "summary": "Adipisicing eos ipsum provident aperiam reprehenderit? Voluptas sit eligendi corporis sit sequi fugiat, natus Excepturi culpa tenetur aut autem nihil! Commodi amet quia nemo incidunt odit mollitia Nihil culpa modi",
       "highlights": [
         "Adipisicing quam sint molestiae officiis ut.",
@@ -69,19 +68,11 @@
       "courses": ["DB1101 - Basic SQL"]
     },
     {
-      "institution": "University",
+      "institution": "Institution",
       "url": "https://institution.com/",
-      "area": "Software Development",
-      "studyType": "Master",
-      "endDate": "2015-01-01"
-    }
-  ],
-  "awards": [
-    {
-      "title": "Award",
-      "date": "2014-11-01",
-      "awarder": "Company",
-      "summary": "There is no spoon."
+      "area": "Area",
+      "studyType": "Study type",
+      "endDate": "«end date»"
     }
   ],
   "certificates": [
@@ -90,15 +81,24 @@
       "date": "2021-11-07",
       "issuer": "Company",
       "url": "https://certificate.example.com"
-    }
-  ],
-  "publications": [
+    },
     {
-      "name": "Publication",
-      "publisher": "Company",
-      "releaseDate": "2014-10-01",
-      "url": "https://publication.com",
-      "summary": "Description…"
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
+    },
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
+    },
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
     }
   ],
   "skills": [
@@ -108,17 +108,18 @@
       "keywords": ["HTML", "CSS", "JavaScript"]
     },
     {
-      "name": "Being man's best friend",
-      "level": "Working on it",
+      "name": "Lorem ipsum",
+      "level": "Master",
       "keywords": [
-        "Digging holes",
-        "Borking",
-        "Looking at things",
-        "Jumping on things",
-        "Rolling in the grass",
-        "Dog naps",
-        "Eating kibble"
+        "Ipsum quibusdam voluptatibus praesentium vitae aliquid expedita",
+        "Similique sed inventore nisi itaque quos A consequatur nulla maxime aliquam aperiam veniam odio numquam amet",
+        "Illum similique placeat obcaecati dignissimos accusantium Voluptatum"
       ]
+    },
+    {
+      "name": "Skill",
+      "level": "Working on it",
+      "keywords": ["«Keyword1»", "«Keyword2»", "«Keyword3»"]
     }
   ],
   "languages": [
@@ -134,12 +135,6 @@
     {
       "name": "Wildlife",
       "keywords": ["Ferrets", "Unicorns"]
-    }
-  ],
-  "references": [
-    {
-      "name": "Jane Doe",
-      "reference": "Reference…"
     }
   ],
   "projects": [

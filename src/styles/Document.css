@@ -35,7 +35,7 @@
       letter-spacing: -0.025em;
       font-size: 15pt;
       font-weight: bold;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
     }
   }
 
@@ -65,28 +65,9 @@
     }
   }
 
-  /* spacing */
-
-  & #skills {
-    margin-top: 1.5rem;
-  }
-
-  & #languages {
-    margin-top: 1rem;
-  }
-
-  & #education,
-  & #certificates {
-    & h1 {
-      margin-bottom: 0.25em;
-    }
-  }
-
   /* grid card styling */
 
-  & #projects,
-  & #education,
-  & #certificates {
+  & .grid-card {
     & .title {
       font-size: 11pt;
     }
@@ -104,20 +85,17 @@
 
   /* stacked card styling */
 
-  & #experience {
-    & h1 {
-      margin-bottom: 0.5em;
-    }
-  }
-
-  & #certificates {
-    margin-top: 1rem;
-  }
-
-  & #work,
-  & #experience {
+  & .stacked-card {
     & .title {
       font-size: 13pt;
     }
+  }
+}
+
+/* section spacing overrides */
+
+#document {
+  & #languages {
+    margin-top: 1rem;
   }
 }

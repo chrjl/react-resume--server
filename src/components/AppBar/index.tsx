@@ -18,7 +18,7 @@ export default function AppBar({ setAppContext }: AppBarProps) {
 
       <span className={styles.links}>
         <a
-          href="https://github.com/chrjl/reactresume--workspace"
+          href="https://github.com/chrjl/reactresume"
           target="_blank"
         >
           <img src={githubMark} alt="GitHub" />

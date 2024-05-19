@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 import githubMark from '../assets/github-mark-white.svg';
 
@@ -9,9 +9,9 @@ export default function Root() {
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 Home
-              </Link>
+              </NavLink>
             </li>
           </ul>
 

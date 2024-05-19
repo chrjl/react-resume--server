@@ -1,26 +1,36 @@
 import { Link, Outlet } from 'react-router-dom';
 
-import githubMark from '../assets/github-mark.svg';
+import githubMark from '../assets/github-mark-white.svg';
 
 export default function Root() {
   return (
     <>
-      <nav className="navbar">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a
-              target="_blank"
-              href="https://github.com/chrjl/reactresume--server"
-            >
-              <img height="24px" src={githubMark} alt="github" />
-            </a>
-          </li>
-        </ul>
+      <nav className="navbar navbar-dark navbar-expand-sm bg-dark">
+        <div className="container-fluid">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+          </ul>
+
+          <ul className="navbar-nav">
+            <li className="navbar-brand">
+              <a
+                target="_blank"
+                href="https://github.com/chrjl/reactresume--server"
+              >
+                <img
+                  height="24"
+                  src={githubMark}
+                  alt="github"
+                  className="align-text-top"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
 
       <Outlet />

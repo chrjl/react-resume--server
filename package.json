@@ -10,26 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource/arimo": "^5.0.17",
-    "@fontsource/cousine": "^5.0.17",
-    "@fontsource/inter": "^5.0.15",
+    "@fontsource/arimo": "^5.0.20",
+    "@fontsource/cousine": "^5.0.20",
+    "@fontsource/inter": "^5.0.18",
     "eslint-config-prettier": "^9.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@reactresume/jsonresume-parser": "workspace:*",
-    "@reactresume/template": "workspace:*"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@reactresume/types": "workspace*",
-    "@types/react": "^18.2.41",
-    "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "@typescript-eslint/parser": "^6.13.1",
-    "@vitejs/plugin-react": "^4.2.0",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "typescript": "^5.3.2",
-    "vite": "^5.0.4"
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^9.3.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
   }
 }

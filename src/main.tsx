@@ -8,7 +8,7 @@ import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Root from './routes/root';
-import DataUploader from './routes/source';
+import DataUploader, { action as dataUploaderAction } from './routes/source';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
       {
         path: '/source',
         element: <DataUploader />,
+        action: dataUploaderAction,
       },
     ],
   },

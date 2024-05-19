@@ -1,11 +1,36 @@
 import { Form } from 'react-router-dom';
 
+export async function action({ request }) {
+  const formData = await request.formData();
+  const type = formData.get('type');
+
+  switch (type) {
+    case 'remote': {
+      const url = formData.get('url');
+      const text = await fetch(url);
+      const data = await text.json();
+      break;
+    }
+    case 'file': {
+      const file = formData.get('file');
+      const data = JSON.parse(await file.text());
+      break;
+    }
+    default:
+      throw new Error(
+        `Error at DataUploader: I don't know how to handle source type ${type}`
+      );
+  }
+
+  return true;
+}
+
 export default function DataUploader() {
   return (
     <div className="container">
       <h1>Data uploader</h1>
 
-      <Form method="post">
+      <Form method="post" encType="multipart/form-data">
         <fieldset className="form-check">
           <input
             type="radio"

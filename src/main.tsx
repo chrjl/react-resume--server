@@ -8,11 +8,18 @@ import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Root from './routes/root';
+import DataUploader from './routes/source';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    children: [
+      {
+        path: '/source',
+        element: <DataUploader />,
+      },
+    ],
   },
 ]);
 

@@ -13,6 +13,11 @@ export default function Root() {
                 Home
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/source" className="nav-link">
+                Source
+              </NavLink>
+            </li>
           </ul>
 
           <ul className="navbar-nav">

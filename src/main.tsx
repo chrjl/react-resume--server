@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
+import DataProvider, { useDataDispatch } from './contexts/DataContext';
 
 function App() {
   const router = createBrowserRouter([
@@ -34,6 +35,8 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <DataProvider>
       <App />
+    </DataProvider>
   </React.StrictMode>
 );

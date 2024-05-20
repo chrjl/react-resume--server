@@ -9,9 +9,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
+import Raw from './routes/raw';
 import DataProvider, { useDataDispatch } from './contexts/DataContext';
 
 function App() {
+  const dataDispatch = useDataDispatch();
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -20,7 +23,7 @@ function App() {
         {
           path: '/source',
           element: <DataUploader />,
-          action: dataUploaderAction(),
+          action: dataUploaderAction(dataDispatch),
         },
         {
           path: '/raw',

@@ -10,11 +10,21 @@ export function action(dispatch) {
         const url = formData.get('url');
         const text = await fetch(url);
         const data = await text.json();
+
+        dispatch({
+          type: 'UPDATE',
+          raw: data,
+        });
         break;
       }
       case 'file': {
         const file = formData.get('file');
         const data = JSON.parse(await file.text());
+
+        dispatch({
+          type: 'UPDATE',
+          raw: data,
+        });
         break;
       }
       default:

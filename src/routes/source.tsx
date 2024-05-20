@@ -1,28 +1,30 @@
 import { Form } from 'react-router-dom';
 
-export async function action({ request }) {
-  const formData = await request.formData();
-  const type = formData.get('type');
+export function action(dispatch) {
+  return async function ({ request }) {
+    const formData = await request.formData();
+    const type = formData.get('type');
 
-  switch (type) {
-    case 'remote': {
-      const url = formData.get('url');
-      const text = await fetch(url);
-      const data = await text.json();
-      break;
+    switch (type) {
+      case 'remote': {
+        const url = formData.get('url');
+        const text = await fetch(url);
+        const data = await text.json();
+        break;
+      }
+      case 'file': {
+        const file = formData.get('file');
+        const data = JSON.parse(await file.text());
+        break;
+      }
+      default:
+        throw new Error(
+          `Error at DataUploader: I don't know how to handle source type ${type}`
+        );
     }
-    case 'file': {
-      const file = formData.get('file');
-      const data = JSON.parse(await file.text());
-      break;
-    }
-    default:
-      throw new Error(
-        `Error at DataUploader: I don't know how to handle source type ${type}`
-      );
-  }
 
-  return true;
+    return true;
+  };
 }
 
 export default function DataUploader() {

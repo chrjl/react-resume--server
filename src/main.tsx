@@ -19,7 +19,7 @@ function App() {
         {
           path: '/source',
           element: <DataUploader />,
-          action: dataUploaderAction,
+          action: dataUploaderAction(),
         },
         {
           path: '/raw',

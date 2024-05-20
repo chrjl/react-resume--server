@@ -10,22 +10,30 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Root />,
-    children: [
-      {
-        path: '/source',
-        element: <DataUploader />,
-        action: dataUploaderAction,
-      },
-    ],
-  },
-]);
+function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Root />,
+      children: [
+        {
+          path: '/source',
+          element: <DataUploader />,
+          action: dataUploaderAction,
+        },
+        {
+          path: '/raw',
+          element: <Raw />,
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+      <App />
   </React.StrictMode>
 );

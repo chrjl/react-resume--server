@@ -1,4 +1,6 @@
 import { Form } from 'react-router-dom';
+import { useRef } from 'react';
+import { useMeta } from '../contexts/MetaContext';
 
 export function action(dispatch) {
   return async function ({ request }) {
@@ -38,6 +40,12 @@ export function action(dispatch) {
 }
 
 export default function DataUploader() {
+  const meta = useMeta();
+  const urlRadioRef = useRef(null);
+  const urlInputRef = useRef(null);
+  const fileRadioRef = useRef(null);
+  const fileInputRef = useRef(null);
+
   return (
     <div className="container">
       <h1>Data uploader</h1>
@@ -50,11 +58,21 @@ export default function DataUploader() {
             id="sourceTypeRemote"
             value="remote"
             className="form-check-input"
+            defaultChecked={meta.source.type === 'remote'}
+            ref={urlRadioRef}
+            onInput={() => urlInputRef.current.focus()}
           />
           <label htmlFor="sourceTypeRemote" className="form-label">
             Fetch remote source
           </label>
-          <input type="text" name="url" className="form-control" />
+          <input
+            type="text"
+            name="url"
+            className="form-control"
+            defaultValue={meta.source.url}
+            ref={urlInputRef}
+            onFocus={() => (urlRadioRef.current.checked = true)}
+          />
         </fieldset>
 
         <fieldset className="form-check">
@@ -64,9 +82,18 @@ export default function DataUploader() {
             id="sourceTypeFile"
             value="file"
             className="form-check-input"
+            defaultChecked={meta.source.type === 'file'}
+            ref={fileRadioRef}
+            onInput={() => fileInputRef.current.focus()}
           />
           <label htmlFor="sourceTypeFile">Upload local file</label>
-          <input type="file" name="file" className="form-control" />
+          <input
+            type="file"
+            name="file"
+            className="form-control"
+            ref={fileInputRef}
+            onFocus={() => (fileRadioRef.current.checked = true)}
+          />
         </fieldset>
 
         <div className="mt-4">

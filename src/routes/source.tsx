@@ -2,7 +2,7 @@ import { Form } from 'react-router-dom';
 import { useRef } from 'react';
 import { useMeta } from '../contexts/MetaContext';
 
-export function action(dispatch) {
+export function action({ metaDispatch, dataDispatch }) {
   return async function ({ request }) {
     const formData = await request.formData();
     const type = formData.get('type');
@@ -13,7 +13,7 @@ export function action(dispatch) {
         const text = await fetch(url);
         const data = await text.json();
 
-        dispatch({
+        dataDispatch({
           type: 'UPDATE',
           raw: data,
         });
@@ -23,7 +23,7 @@ export function action(dispatch) {
         const file = formData.get('file');
         const data = JSON.parse(await file.text());
 
-        dispatch({
+        dataDispatch({
           type: 'UPDATE',
           raw: data,
         });

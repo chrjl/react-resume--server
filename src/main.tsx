@@ -15,6 +15,7 @@ import MetaProvider, { useMetaDispatch } from './contexts/MetaContext';
 
 function App() {
   const dataDispatch = useDataDispatch();
+  const metaDispatch = useMetaDispatch();
 
   const router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ function App() {
         {
           path: '/source',
           element: <DataUploader />,
-          action: dataUploaderAction(dataDispatch),
+          action: dataUploaderAction({ metaDispatch, dataDispatch }),
         },
         {
           path: '/raw',

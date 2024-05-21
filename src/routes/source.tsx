@@ -13,6 +13,11 @@ export function action({ metaDispatch, dataDispatch }) {
         const text = await fetch(url);
         const data = await text.json();
 
+        metaDispatch({
+          type: 'UPDATE_SOURCE',
+          source: { type: 'remote', url },
+        });
+
         dataDispatch({
           type: 'UPDATE',
           raw: data,
@@ -22,6 +27,11 @@ export function action({ metaDispatch, dataDispatch }) {
       case 'file': {
         const file = formData.get('file');
         const data = JSON.parse(await file.text());
+
+        metaDispatch({
+          type: 'UPDATE_SOURCE',
+          source: { type: 'file', fileName: file.name },
+        });
 
         dataDispatch({
           type: 'UPDATE',

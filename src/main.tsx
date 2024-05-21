@@ -11,6 +11,7 @@ import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
 import Raw from './routes/raw';
 import DataProvider, { useDataDispatch } from './contexts/DataContext';
+import MetaProvider, { useMetaDispatch } from './contexts/MetaContext';
 
 function App() {
   const dataDispatch = useDataDispatch();
@@ -38,8 +39,10 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <DataProvider>
-      <App />
-    </DataProvider>
+    <MetaProvider>
+      <DataProvider>
+        <App />
+      </DataProvider>
+    </MetaProvider>
   </React.StrictMode>
 );

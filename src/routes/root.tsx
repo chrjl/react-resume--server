@@ -5,7 +5,7 @@ import githubMark from '../assets/github-mark-white.svg';
 export default function Root() {
   return (
     <>
-      <nav className="navbar navbar-dark navbar-expand-sm bg-dark">
+      <nav className="navbar navbar-dark sticky-top navbar-expand-sm bg-dark">
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">

@@ -3,7 +3,8 @@
   font-family: var(--ui-font);
 }
 
-strong {
+strong,
+th {
   font-weight: bold;
 }
 

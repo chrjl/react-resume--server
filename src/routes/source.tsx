@@ -1,5 +1,5 @@
-import { Form } from 'react-router-dom';
 import { useRef } from 'react';
+import { Form, redirect } from 'react-router-dom';
 import { useMeta } from '../contexts/MetaContext';
 
 export function action({ metaDispatch, dataDispatch }) {
@@ -45,7 +45,7 @@ export function action({ metaDispatch, dataDispatch }) {
         );
     }
 
-    return true;
+    return redirect('/raw');
   };
 }
 

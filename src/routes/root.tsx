@@ -14,6 +14,11 @@ export default function Root() {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink to="/status" className="nav-link">
+                Status
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink to="/source" className="nav-link">
                 Source
               </NavLink>

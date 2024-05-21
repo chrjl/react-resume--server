@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
 import Raw from './routes/raw';
+import Status from './routes/status';
 import DataProvider, { useDataDispatch } from './contexts/DataContext';
 import MetaProvider, { useMetaDispatch } from './contexts/MetaContext';
 
@@ -30,6 +31,10 @@ function App() {
         {
           path: '/raw',
           element: <Raw />,
+        },
+        {
+          path: '/status',
+          element: <Status />,
         },
       ],
     },

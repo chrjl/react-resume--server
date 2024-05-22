@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from 'react';
+import parser from '@reactresume/jsonresume-parser';
 
 interface Data {
   raw: object;
@@ -9,7 +10,8 @@ type Action = { type: 'UPDATE'; raw: object };
 function dataReducer(state: Data, action: Action) {
   switch (action.type) {
     case 'UPDATE': {
-      return { ...state, raw: action.raw };
+      const parsed = parser(action.raw);
+      return { ...state, raw: action.raw, parsed };
     }
     default:
       throw new Error('Error at `dataReducer`, action type: ${action.type}');

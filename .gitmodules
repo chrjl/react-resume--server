@@ -1,0 +1,9 @@
+[submodule "packages/jsonresume-parser"]
+	path = packages/jsonresume-parser
+	url = git@github.com:chrjl/reactresume--jsonresume-parser.git
+[submodule "packages/components"]
+	path = packages/components
+	url = git@github.com:chrjl/reactresume--components.git
+[submodule "packages/types"]
+	path = packages/types
+	url = git@github.com:chrjl/reactresume--types.git

@@ -4,24 +4,76 @@
 
 Major restructuring of reactresume project.
 
-- [ ] Hoist server to top level of workspace
+- [x] Hoist server to top level of workspace.
+
+  Dependencies include subprojects:
+
+  - [ ] @reactresume/template
+  - [x] @reactresume/jsonresume-parser
+
+  and shared libraries:
+
+  - [x] @reactresume/components
+  - [x] @reactresume/types
+
 - [x] Implement React Router 6
 - [x] Implement Bootstrap CSS for UI components
 - [ ] Implement YAML Resume document
 
 ### Instructions
 
+#### Install dependencies (pnpm workspace)
+
+- Clone this repo, fetch workspace packages (submodules), and check for updates to submodules.
+
+  ```console
+  git clone --recurse-submodules git@github.com:chrjl/reactresume--workspace.git
+  ```
+
+  or
+
+  ```console
+  git clone git@github.com:chrjl/reactresume--workspace.git
+
+  cd reactresume--workspace/
+  git submodule update --init
+  ```
+
+- Pull updates to submodules
+
+  ```console
+  git submodule update --remote
+  ```
+
+- To work on individual projects, checkout the main branch and (optionally) branch off of it.
+
+  ```console
+  git submodule foreach git checkout main
+  ```
+
 #### Run dev server (Vite)
+
+Install dependencies, including workspace internal-scoped packages
+
+```console
+pnpm install
+```
+
+Run the dev server
 
 ```console
 npx vite --host --clearScreen=false
 ```
 
-Use the included Docker Compose file:
+- or, using the included Docker Compose file (default port 5173)
 
-```console
-docker compose up
-```
+  ```console
+  REACTRESUME_PORT=5173 docker compose up -d
+  ```
+
+#### Live update changes in dependency (workspace) packages
+
+Using TypeScript watch server
 
 #### Build static export (Vite)
 

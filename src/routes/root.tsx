@@ -3,6 +3,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 import githubMark from '../assets/github-mark-white.svg';
 
 export default function Root() {
+  const { raw, parsed } = useData();
+
   return (
     <>
       <nav className="navbar navbar-dark sticky-top navbar-expand-sm bg-dark">
@@ -23,11 +25,14 @@ export default function Root() {
                 Source
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink to="/raw" className="nav-link">
-                Raw
-              </NavLink>
-            </li>
+
+            {raw && (
+              <li className="nav-item">
+                <NavLink to="/raw" className="nav-link">
+                  Raw
+                </NavLink>
+              </li>
+            )}
           </ul>
 
           <ul className="navbar-nav">

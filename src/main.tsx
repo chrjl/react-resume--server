@@ -11,6 +11,8 @@ import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
 import Raw from './routes/raw';
 import Status from './routes/status';
+import Parsed, { loader as parsedLoader } from './routes/parsed';
+
 import DataProvider, { useDataDispatch } from './contexts/DataContext';
 import MetaProvider, { useMetaDispatch } from './contexts/MetaContext';
 
@@ -35,6 +37,11 @@ function App() {
         {
           path: '/status',
           element: <Status />,
+        },
+        {
+          path: '/parsed/:sectionId',
+          loader: parsedLoader,
+          element: <Parsed />,
         },
       ],
     },

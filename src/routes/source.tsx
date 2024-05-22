@@ -55,6 +55,12 @@ export default function DataUploader() {
   const urlInputRef = useRef(null);
   const fileRadioRef = useRef(null);
   const fileInputRef = useRef(null);
+  // set default values if source has not yet been loaded
+  const sourceType = meta.source.type || 'remote';
+  const sourceUrl =
+    (!meta.source.type && 'sample.json') ||
+    (meta.source.type === 'remote' && meta.source.url) ||
+    '';
 
   return (
     <div className="container">
@@ -68,7 +74,7 @@ export default function DataUploader() {
             id="sourceTypeRemote"
             value="remote"
             className="form-check-input"
-            defaultChecked={meta.source.type === 'remote'}
+            defaultChecked={sourceType === 'remote'}
             ref={urlRadioRef}
             onInput={() => urlInputRef.current.focus()}
           />
@@ -79,7 +85,7 @@ export default function DataUploader() {
             type="text"
             name="url"
             className="form-control"
-            defaultValue={meta.source.url}
+            defaultValue={sourceUrl}
             ref={urlInputRef}
             onFocus={() => (urlRadioRef.current.checked = true)}
           />
@@ -92,7 +98,7 @@ export default function DataUploader() {
             id="sourceTypeFile"
             value="file"
             className="form-check-input"
-            defaultChecked={meta.source.type === 'file'}
+            defaultChecked={sourceType === 'file'}
             ref={fileRadioRef}
             onInput={() => fileInputRef.current.focus()}
           />

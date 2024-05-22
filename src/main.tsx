@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
-import Raw from './routes/raw';
+import Raw, { loader as rawLoader } from './routes/raw';
 import Status from './routes/status';
 import Parsed, { loader as parsedLoader } from './routes/parsed';
 
@@ -31,12 +31,17 @@ function App() {
           action: dataUploaderAction({ metaDispatch, dataDispatch }),
         },
         {
+          path: '/status',
+          element: <Status />,
+        },
+        {
           path: '/raw',
           element: <Raw />,
         },
         {
-          path: '/status',
-          element: <Status />,
+          path: '/raw/:sectionId',
+          element: <Raw />,
+          loader: rawLoader,
         },
         {
           path: '/parsed/:sectionId',

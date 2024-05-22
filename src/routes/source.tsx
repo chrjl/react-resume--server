@@ -51,10 +51,11 @@ export function action({ metaDispatch, dataDispatch }) {
 
 export default function DataUploader() {
   const meta = useMeta();
-  const urlRadioRef = useRef(null);
-  const urlInputRef = useRef(null);
-  const fileRadioRef = useRef(null);
-  const fileInputRef = useRef(null);
+  const urlRadioRef = useRef(null as HTMLInputElement);
+  const urlInputRef = useRef(null as HTMLInputElement);
+  const fileRadioRef = useRef(null as HTMLInputElement);
+  const fileInputRef = useRef(null as HTMLInputElement);
+
   // set default values if source has not yet been loaded
   const sourceType = meta.source.type || 'remote';
   const sourceUrl =

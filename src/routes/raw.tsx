@@ -1,10 +1,16 @@
-import JSONPretty from 'react-json-pretty';
-import 'react-json-pretty/themes/monikai.css';
+import { JsonView } from 'react-json-view-lite';
+import 'react-json-view-lite/dist/index.css';
 
 import { useData } from '../contexts/DataContext';
 
 export default function Raw() {
   const data = useData();
 
-  return <JSONPretty data={data.raw} />;
+  return (
+    <div className="container">
+      <code>
+        <JsonView data={data.raw} clickToExpandNode={true} />
+      </code>
+    </div>
+  );
 }

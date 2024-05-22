@@ -13,13 +13,13 @@
     "@fontsource/arimo": "^5.0.20",
     "@fontsource/cousine": "^5.0.20",
     "@fontsource/inter": "^5.0.18",
+    "@reactresume/jsonresume-parser": "workspace:*",
     "bootstrap": "^5.3.3",
     "eslint-config-prettier": "^9.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-json-pretty": "^2.2.0",
-    "react-router-dom": "^6.23.1",
-    "@reactresume/jsonresume-parser": "workspace:*"
+    "react-json-view-lite": "^1.4.0",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.2",

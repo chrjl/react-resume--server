@@ -2,8 +2,8 @@ import { createContext, useContext, useReducer } from 'react';
 
 interface MetaState {
   source: {
-    type: 'remote' | 'file';
-    url?: URL | string;
+    type: 'remote' | 'file' | null;
+    url?: string;
     fileName?: string;
   };
 }
@@ -15,8 +15,7 @@ type Action = {
 
 const initialState: MetaState = {
   source: {
-    type: 'remote',
-    url: '/resume.json',
+    type: null,
   },
 };
 
@@ -36,7 +35,7 @@ function metaReducer(metaState: MetaState, action: Action) {
   }
 }
 
-const MetaContext = createContext(null);
+const MetaContext = createContext(initialState);
 const MetaDispatchContext = createContext(null);
 
 export default function MetaProvider({ children }) {

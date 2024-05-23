@@ -29,51 +29,53 @@ export default function Root() {
               </NavLink>
             </li>
 
-            {raw && (
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Raw
-                </a>
-                <ul className="dropdown-menu">
-                  <li className="nav-item">
-                    <NavLink to="/raw" end className="dropdown-item">
-                      ALL
-                    </NavLink>
-                  </li>
-                  <hr />
-                  {Object.keys(raw).map((sectionId) => (
-                    <li key={sectionId} className="nav-item">
-                      <NavLink
-                        className="dropdown-item"
-                        to={`/raw/${sectionId}`}
-                      >
-                        {sectionId}
+            <li className="nav-item dropdown">
+              <a
+                className={`nav-link dropdown-toggle ${parsed ? '' : 'disabled'}`}
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Raw
+              </a>
+              <ul className="dropdown-menu">
+                {raw && (
+                  <>
+                    <li className="nav-item">
+                      <NavLink to="/raw" end className="dropdown-item">
+                        ALL
                       </NavLink>
                     </li>
-                  ))}
-                </ul>
-              </li>
-            )}
+                    <hr />
+                    {Object.keys(raw).map((sectionId) => (
+                      <li key={sectionId} className="nav-item">
+                        <NavLink
+                          className="dropdown-item"
+                          to={`/raw/${sectionId}`}
+                        >
+                          {sectionId}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </>
+                )}
+              </ul>
+            </li>
 
-            {parsed && (
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Parsed
-                </a>
-                <ul className="dropdown-menu">
-                  {Object.keys(parsed).map((sectionId) => (
+            <li className="nav-item dropdown">
+              <a
+                className={`nav-link dropdown-toggle ${parsed ? '' : 'disabled'}`}
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Parsed
+              </a>
+              <ul className="dropdown-menu">
+                {parsed &&
+                  Object.keys(parsed).map((sectionId) => (
                     <li key={sectionId} className="nav-item">
                       <NavLink
                         className="dropdown-item"
@@ -83,15 +85,34 @@ export default function Root() {
                       </NavLink>
                     </li>
                   ))}
-                </ul>
-              </li>
-            )}
-
-            <li className="nav-item">
-              <NavLink to="/templates" className="nav-link disabled">
-                Templates
-              </NavLink>
+              </ul>
             </li>
+
+            <li className="nav-item dropdown">
+              <a
+                className={`nav-link dropdown-toggle ${parsed ? '' : 'disabled'}`}
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Templates
+              </a>
+              <ul className="dropdown-menu">
+                {parsed &&
+                  Object.keys(parsed).map((sectionId) => (
+                    <li key={sectionId} className="nav-item">
+                      <NavLink
+                        className="dropdown-item"
+                        to={`/templates/${sectionId}`}
+                      >
+                        {sectionId}
+                      </NavLink>
+                    </li>
+                  ))}
+              </ul>
+            </li>
+
             <li className="nav-item">
               <NavLink to="/document" className="nav-link disabled">
                 Document

@@ -14,6 +14,7 @@
     "@fontsource/cousine": "^5.0.20",
     "@fontsource/inter": "^5.0.18",
     "@reactresume/jsonresume-parser": "workspace:*",
+    "@reactresume/template": "workspace:*",
     "bootstrap": "^5.3.3",
     "eslint-config-prettier": "^9.1.0",
     "react": "^18.3.1",

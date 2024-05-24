@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom/client';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+// self-hosted fonts
+import '@fontsource/arimo/latin-400.css';
+import '@fontsource/arimo/latin-400-italic.css';
+import '@fontsource/arimo/latin-700.css';
+import '@fontsource/arimo/latin-700-italic.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-600.css';
+import '@fontsource/inter/latin-700.css';
+import '@fontsource/cousine/latin-400.css';
+import '@fontsource/cousine/latin-400-italic.css';
+import '@fontsource/cousine/latin-700.css';
+import '@fontsource/cousine/latin-700-italic.css';
+
 // apply bootstrap classes, then perform generic reset
 import 'bootstrap/dist/css/bootstrap.css';
 import './styles/reset.css';

@@ -1,8 +1,21 @@
 import { useRef } from 'react';
+import { Form } from 'react-router-dom';
 import templates from '@reactresume/template';
 
 import { useData } from '../contexts/DataContext';
 import { useMeta } from '../contexts/MetaContext';
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const statusEntries: [string, string][] = Array.from(formData);
+
+  const display = statusEntries.map(([s, _]) => ({
+    id: s,
+    visible: true,
+  }));
+
+  return true;
+}
 
 export default function SectionSelector() {
   const { parsed } = useData();
@@ -16,7 +29,7 @@ export default function SectionSelector() {
   return (
     <div className="container">
       <h1 className="h1">Section selector</h1>
-      <form id="section-selector">
+      <Form id="section-selector" method="post">
         {templateSectionList.map((id, idx) => (
           <fieldset key={id} className="mt-2">
             <input
@@ -49,7 +62,7 @@ export default function SectionSelector() {
             Reset
           </button>
         </div>
-      </form>
+      </Form>
     </div>
   );
 

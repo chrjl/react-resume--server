@@ -10,7 +10,9 @@ import './styles/index.css';
 
 import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';
-import SectionSelector from './routes/control'
+import SectionSelector, {
+  action as sectionSelectorAction,
+} from './routes/control';
 import Raw, { loader as rawLoader } from './routes/raw';
 import Status from './routes/status';
 import Parsed, { loader as parsedLoader } from './routes/parsed';
@@ -40,6 +42,7 @@ function App() {
         {
           path: '/control',
           element: <SectionSelector />,
+          action: sectionSelectorAction,
         },
         {
           path: '/raw',

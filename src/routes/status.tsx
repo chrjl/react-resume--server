@@ -43,6 +43,7 @@ export default function Status() {
 
 function SectionStatus() {
   const { raw, parsed } = useData();
+  const { display } = useMeta();
 
   if (!raw) {
     return <code>no data</code>;
@@ -53,10 +54,14 @@ function SectionStatus() {
   const rawSectionsList = Object.keys(raw);
   const parsedSectionsList = Object.keys(parsed);
   const templateSectionsList = templates.map((t) => t.id);
+  const displaySectionsList = display
+    .filter((s) => s.visible)
+    .map((s) => s.id);
+  console.log({ displaySectionsList });
 
+  templateSectionsList.forEach((section) => sectionList.add(section));
   parsedSectionsList.forEach((section) => sectionList.add(section));
   rawSectionsList.forEach((section) => sectionList.add(section));
-  templateSectionsList.forEach((section) => sectionList.add(section));
 
   return (
     <table className="table d-inline-block">
@@ -66,6 +71,7 @@ function SectionStatus() {
           <th>Raw</th>
           <th>Parsed</th>
           <th>Templates</th>
+          <th>Display</th>
         </tr>
       </thead>
       <tbody>
@@ -80,6 +86,9 @@ function SectionStatus() {
             </td>
             <td>
               <code>{templateSectionsList.includes(s).toString()}</code>
+            </td>
+            <td>
+              <code>{displaySectionsList.includes(s).toString()}</code>
             </td>
           </tr>
         ))}

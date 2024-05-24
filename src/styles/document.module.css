@@ -1,0 +1,23 @@
+.container {
+  --base-font: Arimo, Arial, Helvetica, sans-serif;
+  --title-font: Inter, var(--base-font);
+  --mono-font: Cousine, 'Courier New', Courier, monospace;
+
+  --paper-width: 8.5in;
+  --paper-height: 11in;
+  --paper-margin: 0.5in;
+  --content-height: calc(var(--paper-height) - 2 * var(--paper-margin));
+  --content-width: calc(var(--paper-width) - 2 * var(--paper-margin));
+
+  width: var(--paper-width);
+  padding: var(--paper-margin);
+  padding-bottom: 0;
+  min-height: var(--paper-height);
+
+  background-color: white;
+  font-family: var(--base-font);
+  font-size: 10pt;
+  white-space: pre-line;
+  box-sizing: border-box;
+}
+

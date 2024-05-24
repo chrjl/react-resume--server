@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+// apply bootstrap classes, then perform generic reset
+import 'bootstrap/dist/css/bootstrap.css';
 import './styles/reset.css';
 import './styles/index.css';
-import 'bootstrap/dist/css/bootstrap.css';
 
 import Root from './routes/root';
 import DataUploader, { action as dataUploaderAction } from './routes/source';

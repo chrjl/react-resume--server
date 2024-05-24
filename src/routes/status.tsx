@@ -10,8 +10,8 @@ export default function Status() {
 
   return (
     <div className="container">
-      <h1>App Status</h1>
-      <h2 className="mt-4">Source</h2>
+      <h1 className="h1">App Status</h1>
+      <h2 className="h2 mt-4">Source</h2>
       <table className="table table-hover d-inline-block">
         <tbody>
           <tr>
@@ -35,7 +35,7 @@ export default function Status() {
         </tbody>
       </table>
 
-      <h2>Sections</h2>
+      <h2 className="h2">Sections</h2>
       <SectionStatus />
     </div>
   );

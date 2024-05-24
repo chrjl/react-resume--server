@@ -65,7 +65,7 @@ export default function DataUploader() {
 
   return (
     <div className="container">
-      <h1>Data uploader</h1>
+      <h1 className="h1">Data uploader</h1>
 
       <Form method="post" encType="multipart/form-data">
         <fieldset className="form-check">

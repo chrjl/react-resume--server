@@ -16,7 +16,7 @@ export default function Parsed() {
 
   return (
     <div className="container">
-      <h1 style={{ textTransform: 'capitalize' }}>{sectionId}</h1>
+      <h1 style={{ textTransform: 'capitalize' }} className="h1">{sectionId}</h1>
       <ul className="list-group">
         {entries
           ? entries.map(
@@ -57,35 +57,35 @@ function ResumeEntryDetail({
     <dl>
       {title && (
         <>
-          <dt>Title</dt>
+          <dt className="h5">Title</dt>
           <dd>{title}</dd>
         </>
       )}
 
       {subtitle && (
         <>
-          <dt>Subtitle</dt>
+          <dt className="h5 mt-4">Subtitle</dt>
           <dd>{subtitle}</dd>
         </>
       )}
 
       {note && (
         <>
-          <dt>Note</dt>
+          <dt className="h5 mt-4">Note</dt>
           <dd>{note}</dd>
         </>
       )}
 
       {description && (
         <>
-          <dt>Description</dt>
+          <dt className="h5 mt-4">Description</dt>
           <dd>{description}</dd>
         </>
       )}
 
       {highlights && (
         <>
-          <dt>Highlights</dt>
+          <dt className="h5 mt-4">Highlights</dt>
           <dd>{highlights}</dd>
         </>
       )}

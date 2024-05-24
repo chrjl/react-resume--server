@@ -19,3 +19,9 @@ em {
 a {
   color: #2563eb;
 }
+
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  margin-top: 0;
+}

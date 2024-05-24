@@ -92,7 +92,7 @@ export default function DataUploader() {
           />
         </fieldset>
 
-        <fieldset className="form-check">
+        <fieldset className="form-check mt-2">
           <input
             type="radio"
             name="type"
@@ -113,11 +113,11 @@ export default function DataUploader() {
           />
         </fieldset>
 
-        <div className="mt-4">
+        <div className="mt-4 btn-group">
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-          <button type="reset" className="btn btn-secondary">
+          <button type="reset" className="btn btn-outline-secondary">
             Reset
           </button>
         </div>

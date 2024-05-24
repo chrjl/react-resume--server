@@ -13,3 +13,25 @@ services:
       - npm
       - run
       - dev
+
+  components:
+    image: node:lts-slim
+    volumes:
+      - .:/usr/share/app
+    working_dir: /usr/share/app/packages/components
+    tty: true
+    entrypoint:
+      - npm
+      - run
+      - dev
+
+  templates:
+    image: node:lts-slim
+    volumes:
+      - .:/usr/share/app
+    working_dir: /usr/share/app/packages/templates
+    tty: true
+    entrypoint:
+      - npm
+      - run
+      - dev

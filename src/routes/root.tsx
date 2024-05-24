@@ -122,7 +122,10 @@ export default function Root() {
             </li>
 
             <li className="nav-item">
-              <NavLink to="/document" className="nav-link disabled">
+              <NavLink
+                to="/document"
+                className={`nav-link ${parsed ? '' : 'disabled'}`}
+              >
                 Document
               </NavLink>
             </li>

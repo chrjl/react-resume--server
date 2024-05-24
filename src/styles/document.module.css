@@ -8,6 +8,7 @@
   --paper-margin: 0.5in;
   --content-height: calc(var(--paper-height) - 2 * var(--paper-margin));
   --content-width: calc(var(--paper-width) - 2 * var(--paper-margin));
+  --section-spacing: 2em;
 
   width: var(--paper-width);
   padding: var(--paper-margin);
@@ -19,6 +20,10 @@
   font-size: 10pt;
   white-space: pre-line;
   box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--section-spacing);
 
   & section {
     & h1 {
@@ -81,4 +86,10 @@
   & :global(.title) {
     font-size: 13pt;
   }
+}
+
+/* section overrides */
+
+:global(#languages) {
+  margin-top: -1em;
 }

@@ -17,6 +17,7 @@ import Raw, { loader as rawLoader } from './routes/raw';
 import Status from './routes/status';
 import Parsed, { loader as parsedLoader } from './routes/parsed';
 import Template, { loader as templateLoader } from './routes/templates';
+import Document from './routes/document';
 
 import DataProvider, { useDataDispatch } from './contexts/DataContext';
 import MetaProvider, { useMetaDispatch } from './contexts/MetaContext';
@@ -62,6 +63,10 @@ function App() {
           path: '/templates/:sectionId',
           loader: templateLoader,
           element: <Template />,
+        },
+        {
+          path: '/document',
+          element: <Document />,
         },
       ],
     },

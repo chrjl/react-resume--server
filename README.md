@@ -8,7 +8,7 @@ Major restructuring of reactresume project.
 
   Dependencies include subprojects:
 
-  - [ ] @reactresume/template
+  - [x] @reactresume/template
   - [x] @reactresume/jsonresume-parser
 
   and shared libraries:
@@ -18,7 +18,14 @@ Major restructuring of reactresume project.
 
 - [x] Implement React Router 6
 - [x] Implement Bootstrap CSS for UI components
-- [ ] Implement YAML Resume document
+
+Additional tasks:
+
+- [ ] Implement YAML Resume document (in addition to, or in replacement of, JSON Resume?)
+- [ ] Implement reordering of sections (using flexbox order?)
+- [ ] Generate PDF
+  - Generate HTML from `<Document />` using [`react-print`](https://www.npmjs.com/package/@onedoc/react-print)
+  - Generate PDF from HTML using [`react-print`](https://react-pdf.org/) and [`react-pdf-html`](https://www.npmjs.com/package/react-pdf-html)
 
 ### Instructions
 

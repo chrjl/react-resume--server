@@ -21,3 +21,28 @@
   box-sizing: border-box;
 }
 
+.basics {
+  margin-top: 0;
+
+  :global(.title),
+  :global(.subtitle) {
+    font-family: var(--title-font);
+    display: block;
+  }
+
+  :global(.title) {
+    font-size: 22pt;
+    font-weight: bold;
+    letter-spacing: unset;
+    margin: 0;
+  }
+
+  :global(.subtitle) {
+    font-size: 14pt;
+    font-weight: bold;
+    letter-spacing: -0.025em;
+    white-space: pre-line;
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+  }
+}

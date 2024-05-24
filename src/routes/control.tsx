@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Form } from 'react-router-dom';
+import { Form, redirect } from 'react-router-dom';
 import templates from '@reactresume/template';
 
 import { useData } from '../contexts/DataContext';
@@ -16,7 +16,7 @@ export function action({ metaDispatch }) {
     }));
 
     metaDispatch({ type: 'UPDATE_SECTIONS', display });
-    return true;
+    return redirect('/document');
   };
 }
 

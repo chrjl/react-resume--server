@@ -54,9 +54,7 @@ function SectionStatus() {
   const rawSectionsList = Object.keys(raw);
   const parsedSectionsList = Object.keys(parsed);
   const templateSectionsList = templates.map((t) => t.id);
-  const displaySectionsList = display
-    .filter((s) => s.visible)
-    .map((s) => s.id);
+  const displaySectionsList = display.filter((s) => s.visible).map((s) => s.id);
   console.log({ displaySectionsList });
 
   templateSectionsList.forEach((section) => sectionList.add(section));
@@ -68,26 +66,26 @@ function SectionStatus() {
       <thead>
         <tr>
           <th>Section</th>
-          <th>Raw</th>
-          <th>Parsed</th>
-          <th>Templates</th>
-          <th>Display</th>
+          <th className="text-center">Raw</th>
+          <th className="text-center">Parsed</th>
+          <th className="text-center">Templates</th>
+          <th className="text-center">Display</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className="table-group-divider">
         {Array.from(sectionList).map((s) => (
-          <tr>
+          <tr key={s}>
             <th>{s}</th>
             <td>
               <code>{rawSectionsList.includes(s).toString()}</code>
             </td>
-            <td>
+            <td className="text-center">
               <code>{parsedSectionsList.includes(s).toString()}</code>
             </td>
-            <td>
+            <td className="text-center">
               <code>{templateSectionsList.includes(s).toString()}</code>
             </td>
-            <td>
+            <td className="text-center">
               <code>{displaySectionsList.includes(s).toString()}</code>
             </td>
           </tr>

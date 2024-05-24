@@ -45,7 +45,7 @@ export function action({ metaDispatch, dataDispatch }) {
         );
     }
 
-    return redirect('/raw');
+    return redirect('/control');
   };
 }
 

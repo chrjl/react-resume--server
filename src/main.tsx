@@ -13,6 +13,7 @@ import DataUploader, { action as dataUploaderAction } from './routes/source';
 import Raw, { loader as rawLoader } from './routes/raw';
 import Status from './routes/status';
 import Parsed, { loader as parsedLoader } from './routes/parsed';
+import Template, { loader as templateLoader } from './routes/templates';
 
 import DataProvider, { useDataDispatch } from './contexts/DataContext';
 import MetaProvider, { useMetaDispatch } from './contexts/MetaContext';
@@ -48,6 +49,11 @@ function App() {
           path: '/parsed/:sectionId',
           loader: parsedLoader,
           element: <Parsed />,
+        },
+        {
+          path: '/templates/:sectionId',
+          loader: templateLoader,
+          element: <Template />,
         },
       ],
     },

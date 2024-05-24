@@ -25,3 +25,9 @@ a {
   box-sizing: border-box;
   margin-top: 0;
 }
+
+@media print {
+  nav {
+    display: none !important;
+  }
+}

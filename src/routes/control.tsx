@@ -1,8 +1,11 @@
 import templates from '@reactresume/template';
 
 import { useData } from '../contexts/DataContext';
+import { useMeta } from '../contexts/MetaContext';
+
 export default function SectionSelector() {
   const { parsed } = useData();
+  const { display } = useMeta();
 
   // generate list of sections and order
   const templateSectionList = templates.map((t) => t.id) || [];
@@ -18,7 +21,10 @@ export default function SectionSelector() {
               type="checkbox"
               className="form-check-input"
               id={`checkbox-${id}`}
+              name={id}
               disabled={!parsedSectionList.includes(id)}
+              defaultChecked={display.find((s) => s.id === id).visible}
+              ref={(c) => (inputRefs.current[idx] = c)}
             />{' '}
             <label htmlFor={`checkbox-${id}`} className="form-check-label">
               {id}

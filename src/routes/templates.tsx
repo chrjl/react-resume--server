@@ -8,20 +8,38 @@ export function loader({ params }) {
   return params.sectionId;
 }
 
-export default function Template() {
-  const sectionId = useLoaderData();
-  const data = useData().parsed ? useData().parsed[sectionId] : null;
+export function Section({ sectionId }) {
+  const parsed = useData().parsed || null;
+  const sectionData = parsed ? parsed[sectionId] : null;
 
   const Template = templates.find((t) => t.id === sectionId)?.Component;
-  return data ? (
+
+  return sectionData ? (
+    <section className={styles[sectionId]}>
+      <Template data={sectionData} />
+    </section>
+  ) : null;
+}
+
+export default function Template() {
+  const sectionId = useLoaderData();
+
+  const parsed = useData().parsed || null;
+  const sectionData = parsed ? parsed[sectionId] : null;
+
+  const Template = templates.find((t) => t.id === sectionId)?.Component;
+
+  if (!sectionData) {
+    return <code>no data</code>;
+  }
+  
+  if (!Template) {
+    return <code>no template</code>;
+  }
+
+  return (
     <div className={styles.container}>
-      <section>
-        <div className={styles[sectionId]}>
-          <Template data={data} />
-        </div>
-      </section>
+      <Section sectionId={sectionId} />
     </div>
-  ) : (
-    <code>no data</code>
   );
 }

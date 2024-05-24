@@ -5,16 +5,19 @@ import templates from '@reactresume/template';
 import { useData } from '../contexts/DataContext';
 import { useMeta } from '../contexts/MetaContext';
 
-export async function action({ request }) {
-  const formData = await request.formData();
-  const statusEntries: [string, string][] = Array.from(formData);
+export function action({ metaDispatch }) {
+  return async function ({ request }) {
+    const formData = await request.formData();
+    const statusEntries: [string, string][] = Array.from(formData);
 
-  const display = statusEntries.map(([s, _]) => ({
-    id: s,
-    visible: true,
-  }));
+    const display = statusEntries.map(([s, _]) => ({
+      id: s,
+      visible: true,
+    }));
 
-  return true;
+    metaDispatch({ type: 'UPDATE_SECTIONS', display });
+    return true;
+  };
 }
 
 export default function SectionSelector() {
@@ -38,7 +41,7 @@ export default function SectionSelector() {
               id={`checkbox-${id}`}
               name={id}
               disabled={!parsedSectionList.includes(id)}
-              defaultChecked={display.find((s) => s.id === id).visible}
+              defaultChecked={display.find((s) => s.id === id)?.visible}
               ref={(c) => (inputRefs.current[idx] = c)}
             />{' '}
             <label htmlFor={`checkbox-${id}`} className="form-check-label">

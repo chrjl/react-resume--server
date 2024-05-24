@@ -42,7 +42,7 @@ function App() {
         {
           path: '/control',
           element: <SectionSelector />,
-          action: sectionSelectorAction,
+          action: sectionSelectorAction({ metaDispatch }),
         },
         {
           path: '/raw',

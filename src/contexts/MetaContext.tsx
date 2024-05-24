@@ -17,10 +17,12 @@ interface MetaState {
   display: MetaStateSection[];
 }
 
-type Action = {
-  type: 'UPDATE_SOURCE';
-  source: { type: 'remote' | 'file'; url?: string; fileName?: string };
-};
+type Action =
+  | {
+      type: 'UPDATE_SOURCE';
+      source: MetaStateSource;
+    }
+  | { type: 'UPDATE_SECTIONS'; display: MetaStateSection[] };
 
 const templateSectionList = templates.map((s) => s.id);
 
@@ -36,9 +38,14 @@ function metaReducer(metaState: MetaState, action: Action) {
     case 'UPDATE_SOURCE': {
       return {
         ...metaState,
-        source: { ...action.source },
+        source: action.source,
       };
-      break;
+    }
+    case 'UPDATE_SECTIONS': {
+      return {
+        ...metaState,
+        display: action.display,
+      };
     }
     default:
       throw new Error(

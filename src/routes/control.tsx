@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import templates from '@reactresume/template';
 
 import { useData } from '../contexts/DataContext';
@@ -6,6 +7,7 @@ import { useMeta } from '../contexts/MetaContext';
 export default function SectionSelector() {
   const { parsed } = useData();
   const { display } = useMeta();
+  const inputRefs = useRef([]);
 
   // generate list of sections and order
   const templateSectionList = templates.map((t) => t.id) || [];
@@ -15,7 +17,7 @@ export default function SectionSelector() {
     <div className="container">
       <h1 className="h1">Section selector</h1>
       <form id="section-selector">
-        {templateSectionList.map((id) => (
+        {templateSectionList.map((id, idx) => (
           <fieldset key={id} className="mt-2">
             <input
               type="checkbox"
@@ -36,6 +38,13 @@ export default function SectionSelector() {
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={handleSelectAll}
+          >
+            Select all
+          </button>
           <button type="reset" className="btn btn-outline-secondary">
             Reset
           </button>
@@ -43,4 +52,10 @@ export default function SectionSelector() {
       </form>
     </div>
   );
+
+  function handleSelectAll() {
+    inputRefs.current.forEach(
+      (r) => (r.checked = !r.disabled ? true : r.checked)
+    );
+  }
 }

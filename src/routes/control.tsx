@@ -23,7 +23,7 @@ export function action({ metaDispatch }) {
 export default function SectionSelector() {
   const { parsed } = useData();
   const { display } = useMeta();
-  const inputRefs = useRef([]);
+  const inputRefs = useRef<HTMLInputElement[]>([]);
 
   // generate list of sections and order
   const templateSectionList = templates.map((t) => t.id) || [];
@@ -42,7 +42,7 @@ export default function SectionSelector() {
               name={id}
               disabled={!parsedSectionList.includes(id)}
               defaultChecked={display.find((s) => s.id === id)?.visible}
-              ref={(c) => (inputRefs.current[idx] = c)}
+              ref={(c) => (inputRefs.current[idx] = c as HTMLInputElement)}
             />{' '}
             <label htmlFor={`checkbox-${id}`} className="form-check-label">
               {id}

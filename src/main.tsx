@@ -26,10 +26,10 @@ import DataUploader, { action as dataUploaderAction } from './routes/source';
 import SectionSelector, {
   action as sectionSelectorAction,
 } from './routes/control';
-import Raw, { loader as rawLoader } from './routes/raw';
+import Raw from './routes/raw';
 import Status from './routes/status';
-import Parsed, { loader as parsedLoader } from './routes/parsed';
-import Template, { loader as templateLoader } from './routes/templates';
+import Parsed from './routes/parsed';
+import Template from './routes/templates';
 import Document from './routes/document';
 
 import DataProvider, { useDataDispatch } from './contexts/DataContext';
@@ -65,16 +65,13 @@ function App() {
         {
           path: '/raw/:sectionId',
           element: <Raw />,
-          loader: rawLoader,
         },
         {
           path: '/parsed/:sectionId',
-          loader: parsedLoader,
           element: <Parsed />,
         },
         {
           path: '/templates/:sectionId',
-          loader: templateLoader,
           element: <Template />,
         },
         {

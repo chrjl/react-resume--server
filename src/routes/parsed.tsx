@@ -1,14 +1,10 @@
-import { useLoaderData } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ResumeEntry } from '../../packages/types/dist';
 
 import { useData } from '../contexts/DataContext';
 
-export function loader({ params }) {
-  return params.sectionId;
-}
-
 export default function Parsed() {
-  const sectionId = useLoaderData();
+  const { sectionId } = useParams();
 
   const data = useData();
   const entries: ResumeEntry[] | null =

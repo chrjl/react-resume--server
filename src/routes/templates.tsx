@@ -1,12 +1,8 @@
-import { useLoaderData } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import templates from '@reactresume/template';
 import { useData } from '../contexts/DataContext';
 
 import styles from '../styles/document.module.css';
-
-export function loader({ params }) {
-  return params.sectionId;
-}
 
 export function Section({ sectionId }) {
   const parsed = useData().parsed || null;
@@ -22,7 +18,7 @@ export function Section({ sectionId }) {
 }
 
 export default function Template() {
-  const sectionId = useLoaderData();
+  const { sectionId } = useParams();
 
   const parsed = useData().parsed || null;
   const sectionData = parsed ? parsed[sectionId] : null;

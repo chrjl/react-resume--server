@@ -1,15 +1,21 @@
 import { useRef } from 'react';
 import { Form, redirect } from 'react-router-dom';
-import { useMeta } from '../contexts/MetaContext';
+import { useMeta, Action as MetaAction } from '../contexts/MetaContext';
+import { Action as DataAction } from '../contexts/DataContext';
 
-export function action({ metaDispatch, dataDispatch }) {
-  return async function ({ request }) {
+interface actionArgs {
+  metaDispatch: React.Dispatch<MetaAction>;
+  dataDispatch: React.Dispatch<DataAction>;
+}
+
+export function action({ metaDispatch, dataDispatch }: actionArgs) {
+  return async function ({ request }: { request: Request }) {
     const formData = await request.formData();
     const type = formData.get('type');
 
     switch (type) {
       case 'remote': {
-        const url = formData.get('url');
+        const url = formData.get('url') as string;
         const text = await fetch(url);
         const data = await text.json();
 
@@ -25,7 +31,10 @@ export function action({ metaDispatch, dataDispatch }) {
         break;
       }
       case 'file': {
-        const file = formData.get('file');
+        const file = formData.get('file') as File;
+
+        if (!file) break;
+
         const data = JSON.parse(await file.text());
 
         metaDispatch({

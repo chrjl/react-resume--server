@@ -7,7 +7,7 @@ interface Data {
   parsed: ResumeObject;
 }
 
-type Action = { type: 'UPDATE'; raw: object };
+export type Action = { type: 'UPDATE'; raw: object };
 
 function dataReducer(state: Data, action: Action) {
   switch (action.type) {

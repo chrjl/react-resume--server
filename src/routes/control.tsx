@@ -3,12 +3,16 @@ import { Form, redirect } from 'react-router-dom';
 import templates from '@reactresume/template';
 
 import { useData } from '../contexts/DataContext';
-import { useMeta } from '../contexts/MetaContext';
+import { useMeta, Action as MetaAction } from '../contexts/MetaContext';
 
-export function action({ metaDispatch }) {
-  return async function ({ request }) {
+interface actionArgs {
+  metaDispatch: React.Dispatch<MetaAction>;
+}
+
+export function action({ metaDispatch }: actionArgs) {
+  return async function ({ request }: { request: Request }) {
     const formData = await request.formData();
-    const statusEntries: [string, string][] = Array.from(formData);
+    const statusEntries: [string, FormDataEntryValue][] = Array.from(formData);
 
     const display = statusEntries.map(([s, _], idx) => ({
       id: s,

@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { JSONResumeObject } from '@reactresume/types';
 
 import { JsonView } from 'react-json-view-lite';
 import 'react-json-view-lite/dist/index.css';
@@ -11,7 +12,7 @@ export default function Raw() {
 
   const view = data.raw
     ? sectionId
-      ? { [sectionId]: data.raw[sectionId] }
+      ? { [sectionId]: data.raw[sectionId as keyof JSONResumeObject] }
       : data.raw
     : 'no data';
 

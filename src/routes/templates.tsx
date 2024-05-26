@@ -1,12 +1,15 @@
 import { useParams } from 'react-router-dom';
 import templates from '@reactresume/template';
+
+import { ResumeObject } from '@reactresume/types';
+
 import { useData } from '../contexts/DataContext';
 
 import styles from '../styles/document.module.css';
 
-export function Section({ sectionId }) {
+export function Section({ sectionId }: { sectionId: string }) {
   const parsed = useData().parsed || null;
-  const sectionData = parsed ? parsed[sectionId] : null;
+  const sectionData = parsed ? parsed[sectionId as keyof ResumeObject] : null;
 
   const Template = templates.find((t) => t.id === sectionId)?.Component;
 
@@ -21,14 +24,14 @@ export default function Template() {
   const { sectionId } = useParams();
 
   const parsed = useData().parsed || null;
-  const sectionData = parsed ? parsed[sectionId] : null;
+  const sectionData = parsed ? parsed[sectionId as keyof ResumeObject] : null;
 
   const Template = templates.find((t) => t.id === sectionId)?.Component;
 
-  if (!sectionData) {
+  if (!sectionId || !sectionData) {
     return <code>no data</code>;
   }
-  
+
   if (!Template) {
     return <code>no template</code>;
   }

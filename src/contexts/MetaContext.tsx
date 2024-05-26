@@ -18,7 +18,7 @@ interface MetaState {
   display: MetaStateDisplay[];
 }
 
-type Action =
+export type Action =
   | {
       type: 'UPDATE_SOURCE';
       source: MetaStateSource;

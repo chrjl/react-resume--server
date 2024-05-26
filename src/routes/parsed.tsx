@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { ResumeEntry } from '../../packages/types/dist';
+import { ResumeObject, ResumeEntry } from '@reactresume/types';
 
 import { useData } from '../contexts/DataContext';
 
@@ -8,11 +8,15 @@ export default function Parsed() {
 
   const data = useData();
   const entries: ResumeEntry[] | null =
-    data?.parsed && data.parsed[sectionId] ? data.parsed[sectionId] : null;
+    data?.parsed && data.parsed[sectionId as keyof ResumeObject]
+      ? data.parsed[sectionId as keyof ResumeObject] || null
+      : null;
 
   return (
     <div className="container">
-      <h1 style={{ textTransform: 'capitalize' }} className="h1">{sectionId}</h1>
+      <h1 style={{ textTransform: 'capitalize' }} className="h1">
+        {sectionId}
+      </h1>
       <ul className="list-group">
         {entries
           ? entries.map(

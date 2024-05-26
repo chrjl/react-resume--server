@@ -67,13 +67,15 @@ export default function SectionSelector() {
                 <td className="btn-group text-center">
                   <button
                     type="button"
-                    className="btn btn-outline-primary btn-sm disabled"
+                    className={`btn btn-outline-primary btn-sm ${idx === 0 && 'disabled'}`}
+                    onClick={() => handleDecrementIndex(idx)}
                   >
                     ↑
                   </button>
                   <button
                     type="button"
-                    className="btn btn-outline-primary btn-sm disabled"
+                    className={`btn btn-outline-primary btn-sm ${idx === sections.length - 1 && 'disabled'}`}
+                    onClick={() => handleDecrementIndex(idx + 1)}
                   >
                     ↓
                   </button>
@@ -115,5 +117,16 @@ export default function SectionSelector() {
     inputRefs.current.forEach(
       (r) => (r.checked = !r.disabled ? true : r.checked)
     );
+  }
+
+  function handleDecrementIndex(idx: number) {
+    if (idx === 0) return;
+
+    setSections([
+      ...sections.slice(0, idx - 1),
+      sections[idx],
+      sections[idx - 1],
+      ...sections.slice(idx + 1),
+    ]);
   }
 }

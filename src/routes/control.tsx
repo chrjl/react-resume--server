@@ -10,9 +10,10 @@ export function action({ metaDispatch }) {
     const formData = await request.formData();
     const statusEntries: [string, string][] = Array.from(formData);
 
-    const display = statusEntries.map(([s, _]) => ({
+    const display = statusEntries.map(([s, _], idx) => ({
       id: s,
       visible: true,
+      order: idx,
     }));
 
     metaDispatch({ type: 'UPDATE_SECTIONS', display });
@@ -24,9 +25,15 @@ export default function SectionSelector() {
   const { parsed } = useData();
   const { display } = useMeta();
 
-  // generate list of sections and order
+  // generate list of sections and set order if display is set
   const templateSectionList = templates.map((t) => t.id) || [];
   const parsedSectionList = parsed ? Object.keys(parsed) : [];
+
+  templateSectionList.sort(
+    (a, b) =>
+      display.find((s) => s.id === a)?.order -
+      display.find((s) => s.id === b)?.order
+  );
 
   const [sections, setSections] = useState(templateSectionList);
 

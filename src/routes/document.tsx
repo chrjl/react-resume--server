@@ -1,4 +1,3 @@
-import templates from '@reactresume/template';
 import { useMeta } from '../contexts/MetaContext';
 import { useData } from '../contexts/DataContext';
 
@@ -13,11 +12,9 @@ export default function Document() {
 
   return parsed ? (
     <div className={styles.container}>
-      {templates.map(({ id, Component }) =>
-        display.find((s) => s.id === id)?.visible ? (
-          <Section key={id} sectionId={id} />
-        ) : null
-      )}
+      {display.map((s) => (
+        <Section key={s.id} sectionId={s.id} />
+      ))}
     </div>
   ) : (
     <code>no data</code>

@@ -10,6 +10,7 @@ interface MetaStateSource {
 interface MetaStateSection {
   id: string;
   visible: boolean;
+  order?: number;
 }
 
 interface MetaState {

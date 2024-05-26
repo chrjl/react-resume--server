@@ -7,7 +7,7 @@ interface MetaStateSource {
   fileName?: string;
 }
 
-interface MetaStateSection {
+interface MetaStateDisplay {
   id: string;
   visible: boolean;
   order?: number;
@@ -15,7 +15,7 @@ interface MetaStateSection {
 
 interface MetaState {
   source: MetaStateSource;
-  display: MetaStateSection[];
+  display: MetaStateDisplay[];
 }
 
 type Action =
@@ -23,7 +23,7 @@ type Action =
       type: 'UPDATE_SOURCE';
       source: MetaStateSource;
     }
-  | { type: 'UPDATE_SECTIONS'; display: MetaStateSection[] };
+  | { type: 'UPDATE_SECTIONS'; display: MetaStateDisplay[] };
 
 const templateSectionList = templates.map((s) => s.id);
 
@@ -56,7 +56,7 @@ function metaReducer(metaState: MetaState, action: Action) {
 }
 
 const MetaContext = createContext(initialState);
-const MetaDispatchContext = createContext(null);
+const MetaDispatchContext = createContext(null as React.Dispatch<Action>);
 
 export default function MetaProvider({ children }) {
   const [state, dispatch] = useReducer(metaReducer, initialState);

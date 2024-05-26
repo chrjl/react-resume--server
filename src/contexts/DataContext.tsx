@@ -1,8 +1,10 @@
 import { createContext, useContext, useReducer } from 'react';
 import parser from '@reactresume/jsonresume-parser';
+import { JSONResumeObject, ResumeObject } from '@reactresume/types';
 
 interface Data {
-  raw: object;
+  raw: JSONResumeObject;
+  parsed: ResumeObject;
 }
 
 type Action = { type: 'UPDATE'; raw: object };
@@ -18,15 +20,15 @@ function dataReducer(state: Data, action: Action) {
   }
 }
 
-const DataContext = createContext(null);
-const DataDispatchContext = createContext(null);
+const DataContext = createContext(null as Data);
+const DataDispatchContext = createContext(null as React.Dispatch<Action>);
 
 interface DataProviderProps {
   children: React.ReactNode;
 }
 
 export default function DataProvider({ children }: DataProviderProps) {
-  const [data, dispatch] = useReducer(dataReducer, {});
+  const [data, dispatch] = useReducer(dataReducer, {} as Data);
 
   return (
     <DataContext.Provider value={data}>

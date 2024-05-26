@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Form, redirect } from 'react-router-dom';
 import templates from '@reactresume/template';
 
@@ -23,32 +23,58 @@ export function action({ metaDispatch }) {
 export default function SectionSelector() {
   const { parsed } = useData();
   const { display } = useMeta();
-  const inputRefs = useRef<HTMLInputElement[]>([]);
 
   // generate list of sections and order
   const templateSectionList = templates.map((t) => t.id) || [];
   const parsedSectionList = parsed ? Object.keys(parsed) : [];
 
+  const [sections, setSections] = useState(templateSectionList);
+
+  // input elements will be assigned to elements of this ref array
+  const inputRefs = useRef<HTMLInputElement[]>([]);
+
   return (
     <div className="container">
       <h1 className="h1">Section selector</h1>
+
       <Form id="section-selector" method="post">
-        {templateSectionList.map((id, idx) => (
-          <fieldset key={id} className="mt-2">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id={`checkbox-${id}`}
-              name={id}
-              disabled={!parsedSectionList.includes(id)}
-              defaultChecked={display.find((s) => s.id === id)?.visible}
-              ref={(c) => (inputRefs.current[idx] = c as HTMLInputElement)}
-            />{' '}
-            <label htmlFor={`checkbox-${id}`} className="form-check-label">
-              {id}
-            </label>
-          </fieldset>
-        ))}
+        <table className="table d-inline-block">
+          <thead>
+            <tr>
+              <th className="text-center">Display</th>
+              <th>Section</th>
+            </tr>
+          </thead>
+
+          <tbody className="table-group-divider">
+            {sections.map((id, idx) => (
+              <tr key={id}>
+                <td className="text-center">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id={`checkbox-${id}`}
+                    name={id}
+                    disabled={!parsedSectionList.includes(id)}
+                    defaultChecked={display.find((s) => s.id === id)?.visible}
+                    ref={(c) =>
+                      (inputRefs.current[idx] = c as HTMLInputElement)
+                    }
+                  />
+                </td>
+
+                <td>
+                  <label
+                    htmlFor={`checkbox-${id}`}
+                    className="form-check-label"
+                  >
+                    {id}
+                  </label>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
         <div className="mt-4 btn-group">
           <button type="submit" className="btn btn-primary">

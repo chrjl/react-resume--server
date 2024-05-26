@@ -42,6 +42,7 @@ export default function SectionSelector() {
           <thead>
             <tr>
               <th className="text-center">Display</th>
+              <th className="text-center pl-4">Reorder</th>
               <th>Section</th>
             </tr>
           </thead>
@@ -61,6 +62,21 @@ export default function SectionSelector() {
                       (inputRefs.current[idx] = c as HTMLInputElement)
                     }
                   />
+                </td>
+
+                <td className="btn-group text-center">
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary btn-sm disabled"
+                  >
+                    ↑
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary btn-sm disabled"
+                  >
+                    ↓
+                  </button>
                 </td>
 
                 <td>

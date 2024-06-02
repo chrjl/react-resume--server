@@ -1,0 +1,166 @@
+{
+  "basics": {
+    "name": "John Doe",
+    "label": "Programmer",
+    "email": "john@example.com",
+    "phone": "(912) 555-4321",
+    "url": "https://johndoe.example.com",
+    "location": {
+      "city": "Los Angeles",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "john",
+        "url": "https://twitter.example.com/john"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Company",
+      "position": "President",
+      "location": "Los Angeles, CA",
+      "url": "https://company.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Consectetur corrupti nemo similique perspiciatis modi debitis illum incidunt? Id nisi perferendis repellat autem harum Aliquid error quas provident accusantium facilis! Accusantium doloribus molestiae consequuntur officiis harum. Recusandae odio laborum"
+    },
+    {
+      "name": "Company",
+      "position": "Position",
+      "location": "Location",
+      "department": "Department",
+      "url": "https://company.com",
+      "startDate": "«start date»",
+      "endDate": "«end date»",
+      "summary": "Adipisicing eos ipsum provident aperiam reprehenderit? Voluptas sit eligendi corporis sit sequi fugiat, natus Excepturi culpa tenetur aut autem nihil! Commodi amet quia nemo incidunt odit mollitia Nihil culpa modi",
+      "highlights": [
+        "Adipisicing quam sint molestiae officiis ut.",
+        "Eveniet praesentium id nam sequi minus perspiciatis!",
+        "Ea molestias iure nesciunt vitae odit.",
+        "In maxime aspernatur similique harum quod! Iure quis temporibus beatae sed"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Organization",
+      "position": "Volunteer",
+      "url": "https://organization.com/",
+      "startDate": "2012-01-01",
+      "endDate": "2013-01-01",
+      "summary": "Description…",
+      "highlights": ["Awarded 'Volunteer of the Month'"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University",
+      "url": "https://institution.com/",
+      "area": "Software Development",
+      "studyType": "Bachelor",
+      "startDate": "2011-01-01",
+      "endDate": "2013-01-01",
+      "score": "4.0",
+      "courses": ["DB1101 - Basic SQL"]
+    },
+    {
+      "institution": "Institution",
+      "url": "https://institution.com/",
+      "area": "Area",
+      "studyType": "Study type",
+      "endDate": "«end date»"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
+    },
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
+    },
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
+    },
+    {
+      "name": "Certificate",
+      "date": "2021-11-07",
+      "issuer": "Company",
+      "url": "https://certificate.example.com"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "name": "Lorem ipsum",
+      "level": "Master",
+      "keywords": [
+        "Ipsum quibusdam voluptatibus praesentium vitae aliquid expedita",
+        "Similique sed inventore nisi itaque quos A consequatur nulla maxime aliquam aperiam veniam odio numquam amet",
+        "Illum similique placeat obcaecati dignissimos accusantium Voluptatum"
+      ]
+    },
+    {
+      "name": "Skill",
+      "level": "Working on it",
+      "keywords": ["«Keyword1»", "«Keyword2»", "«Keyword3»"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Latin"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": ["Ferrets", "Unicorns"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project 1",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Consectetur voluptates vero delectus deleniti quaerat. Quibusdam aperiam similique aliquid nemo possimus.",
+      "highlights": [
+        "Temporibus vero cupiditate illo hic totam voluptate Eligendi placeat provident totam dolorem qui omnis.",
+        "Eos laborum qui cupiditate"
+      ],
+      "url": "https://project.example.com/",
+      "keywords": ["keyword1", "keyword2"]
+    },
+    {
+      "name": "Project 2",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Lorem omnis voluptatum harum architecto tempore deserunt? Dolore qui distinctio odio iste consequatur?",
+      "highlights": [
+        "Sapiente unde sint sunt veniam quisquam?",
+        "Natus ratione dicta quidem dolorum assumenda? Assumenda a esse possimus fugiat?"
+      ],
+      "url": "https://project.example.com/",
+      "keywords": ["keyword1", "keyword2"]
+    }
+  ]
+}

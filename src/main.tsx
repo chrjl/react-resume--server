@@ -39,48 +39,52 @@ function App() {
   const dataDispatch = useDataDispatch();
   const metaDispatch = useMetaDispatch();
 
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: <Root />,
-      children: [
-        {
-          path: '/source',
-          element: <DataUploader />,
-          action: dataUploaderAction({ metaDispatch, dataDispatch }),
-        },
-        {
-          path: '/status',
-          element: <Status />,
-        },
-        {
-          path: '/control',
-          element: <SectionSelector />,
-          action: sectionSelectorAction({ metaDispatch }),
-        },
-        {
-          path: '/raw',
-          element: <Raw />,
-        },
-        {
-          path: '/raw/:sectionId',
-          element: <Raw />,
-        },
-        {
-          path: '/parsed/:sectionId',
-          element: <Parsed />,
-        },
-        {
-          path: '/templates/:sectionId',
-          element: <Template />,
-        },
-        {
-          path: '/document',
-          element: <Document />,
-        },
-      ],
-    },
-  ]);
+  console.log(import.meta.env.BASENAME)
+  const router = createBrowserRouter(
+    [
+      {
+        path: '/',
+        element: <Root />,
+        children: [
+          {
+            path: '/source',
+            element: <DataUploader />,
+            action: dataUploaderAction({ metaDispatch, dataDispatch }),
+          },
+          {
+            path: '/status',
+            element: <Status />,
+          },
+          {
+            path: '/control',
+            element: <SectionSelector />,
+            action: sectionSelectorAction({ metaDispatch }),
+          },
+          {
+            path: '/raw',
+            element: <Raw />,
+          },
+          {
+            path: '/raw/:sectionId',
+            element: <Raw />,
+          },
+          {
+            path: '/parsed/:sectionId',
+            element: <Parsed />,
+          },
+          {
+            path: '/templates/:sectionId',
+            element: <Template />,
+          },
+          {
+            path: '/document',
+            element: <Document />,
+          },
+        ],
+      },
+    ],
+    { basename: '/reactresume' }
+  );
 
   return <RouterProvider router={router} />;
 }

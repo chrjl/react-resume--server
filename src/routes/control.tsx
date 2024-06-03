@@ -116,6 +116,13 @@ export default function SectionSelector() {
           >
             Select all
           </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={handleDeselectAll}
+          >
+            Deselect all
+          </button>
           <button type="reset" className="btn btn-outline-secondary">
             Reset
           </button>
@@ -128,6 +135,10 @@ export default function SectionSelector() {
     inputRefs.current.forEach(
       (r) => (r.checked = !r.disabled ? true : r.checked)
     );
+  }
+
+  function handleDeselectAll() {
+    inputRefs.current.forEach((r) => (r.checked = false));
   }
 
   function handleDecrementIndex(idx: number) {

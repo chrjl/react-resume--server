@@ -22,6 +22,7 @@ import './styles/reset.css';
 import './styles/index.css';
 
 import Root from './routes/root';
+import Index from './routes/index'
 import DataUploader, { action as dataUploaderAction } from './routes/source';
 import SectionSelector, {
   action as sectionSelectorAction,
@@ -39,13 +40,13 @@ function App() {
   const dataDispatch = useDataDispatch();
   const metaDispatch = useMetaDispatch();
 
-  console.log(import.meta.env.BASENAME)
   const router = createBrowserRouter(
     [
       {
         path: '/',
         element: <Root />,
         children: [
+          {index: true, element: <Index />},
           {
             path: '/source',
             element: <DataUploader />,

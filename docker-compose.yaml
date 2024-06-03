@@ -29,7 +29,18 @@ services:
     image: node:lts-slim
     volumes:
       - .:/usr/share/app
-    working_dir: /usr/share/app/packages/templates
+    working_dir: /usr/share/app/packages/template
+    tty: true
+    entrypoint:
+      - npm
+      - run
+      - dev
+
+  types:
+    image: node:lts-slim
+    volumes:
+      - .:/usr/share/app
+    working_dir: /usr/share/app/packages/types
     tty: true
     entrypoint:
       - npm

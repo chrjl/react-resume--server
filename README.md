@@ -1,23 +1,31 @@
 # `@reactresume/server`
 
-## Dev branch
+Resume generator built on [React Router 6](https://reactrouter.com), [Bootstrap 5](https://getbootstrap.com), and a bespoke React component library that utilizes [styled-components](https://styled-components.com). Accepts files of [JSON Resume](https://jsonresume.org) format from remote URLs or local file uploads.
 
-Major restructuring of reactresume project.
+💻 [Try out the app](https://chrjl.github.io/reactresume)
 
-- [x] Hoist server to top level of workspace.
+---
 
-  Dependencies include subprojects:
+This metarepo depends on the following subprojects:
 
-  - [x] @reactresume/template
-  - [x] @reactresume/jsonresume-parser
+- [`@reactresume/template`](https://github.com/chrjl/reactresume--template)
+- [`@reactresume/jsonresume-parser`](https://github.com/chrjl/reactresume--jsonresume-parser)
 
-  and shared libraries:
+and shared libraries:
 
-  - [x] @reactresume/components
-  - [x] @reactresume/types
+- [`@reactresume/components`](https://github.com/chrjl/reactresume--components)
+- [`@reactresume/types`](https://github.com/chrjl/reactresume--types)
 
-- [x] Implement React Router 6
-- [x] Implement Bootstrap CSS for UI components
+## Development
+
+> [!NOTE]
+> The `BrowserRouter` is run at a subdirectory (default `reactresume`) for compatibility with Github pages. See notes on how to [run](#run-dev-server) and [visit](#visit-the-dev-server) the dev server.
+
+> [!WARNING]
+> The Vite `base` and `BrowserRouter` `basename` need to be kept consistent and explicitly set in case deployments are made to subdirectories (i.e. Github pages).
+>
+> - Vite `base` sets the basename of public assets. Relative links are preferred (in case of deployment to subdirectories), but this requires explicitly setting the base during build.
+> - React Router `BrowserRouter` basename needs to be explicitly set in order to deploy to subdirectory.
 
 Additional tasks:
 
@@ -58,7 +66,7 @@ Additional tasks:
   git submodule foreach git checkout main
   ```
 
-#### Run dev server (Vite)
+#### Run dev server
 
 Install dependencies, including workspace internal-scoped packages
 
@@ -78,6 +86,12 @@ npx vite --host --clearScreen=false
   REACTRESUME_PORT=5173 docker compose up -d
   ```
 
+#### Visit the dev server
+
+For compatibility with `gh-pages`, the `BrowserRouter` base path needs to be set to run the router at a subdirectory that matches the repo name.
+
+If the dev port is `5173` and the `basepath` is set to `reactresume`, the dev server will be accessible at: <http://localhost:5173/reactresume>
+
 #### Live update changes in dependency (workspace) packages
 
 Using TypeScript watch server
@@ -85,6 +99,12 @@ Using TypeScript watch server
 #### Build static export (Vite)
 
 TBD
+
+#### Deploy to Github Pages
+
+```
+npm deploy
+```
 
 ### Notes
 

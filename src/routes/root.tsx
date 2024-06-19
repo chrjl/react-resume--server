@@ -1,12 +1,17 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import 'bootstrap';
 
-import { useData } from '../contexts/DataContext';
+import { useData, useDataDispatch } from '../contexts/DataContext';
+import { useMeta } from '../contexts/MetaContext';
 
 import githubMark from '../assets/github-mark-white.svg';
 
 export default function Root() {
   const { raw, parsed } = useData();
+  const dataDispatch = useDataDispatch();
+
+  const { source } = useMeta();
+  const isRemoteSource = source.type === 'remote';
 
   return (
     <>
@@ -129,6 +134,16 @@ export default function Root() {
                 Document
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <button
+                type="button"
+                className={`btn btn-sm btn-outline-light ${isRemoteSource ? '' : 'disabled'}`}
+                onClick={() => handleRemoteSourceReload(source.url)}
+              >
+                ⟳
+              </button>
+            </li>
           </ul>
 
           <ul className="navbar-nav">
@@ -152,4 +167,11 @@ export default function Root() {
       <Outlet />
     </>
   );
+
+  async function handleRemoteSourceReload(url: string) {
+    const text = await fetch(url);
+    const data = await text.json();
+
+    dataDispatch({ type: 'UPDATE', raw: data });
+  }
 }

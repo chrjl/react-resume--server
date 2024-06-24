@@ -14,7 +14,7 @@ export function Section({ sectionId }: { sectionId: string }) {
   const Template = templates.find((t) => t.id === sectionId)?.Component;
 
   return sectionData ? (
-    <section className={styles[sectionId]}>
+    <section className={styles[sectionId]} id={sectionId}>
       <Template data={sectionData} />
     </section>
   ) : null;

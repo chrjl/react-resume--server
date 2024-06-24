@@ -8,7 +8,11 @@
   --paper-margin: 0.5in;
   --content-height: calc(var(--paper-height) - 2 * var(--paper-margin));
   --content-width: calc(var(--paper-width) - 2 * var(--paper-margin));
+
   --section-spacing: 2em;
+  --stacked-card-gap: 1em;
+  --grid-card-gap: 1em;
+  --definition-title-width: 9em;
 
   width: var(--paper-width);
   padding: var(--paper-margin);
@@ -92,4 +96,8 @@
 
 :global(#languages) {
   margin-top: -1em;
+}
+
+:global(#projects) {
+  --grid-card-gap: 2em;
 }

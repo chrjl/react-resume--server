@@ -106,6 +106,14 @@ TBD
 npm deploy
 ```
 
+### Styling/spacing
+
+Use CSS variables to set grid and flexbox spacing for components from the `@reactresume/components` library. Scope as necessary, according to section `#id` or component `.className`.
+
+- `StackedCards` - flexbox spacing via `--stacked-card-gap`
+- `GridCards` - grid spacing via `--grid-card-gap`
+- `DefinitionTable` - column width via `--definition-title-width`, row spacing via `--definition-item-gap`
+
 ### Notes
 
 #### Curry the action function so it can access data stored in context

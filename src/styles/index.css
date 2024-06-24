@@ -1,5 +1,6 @@
 :root {
   --ui-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --mono-font: Cousine, monospace;
   font-family: var(--ui-font);
 }
 
@@ -9,7 +10,9 @@ th {
 }
 
 code {
-  font-family: monospace;
+  font-family: var(--mono-font);
+  font-size: smaller;
+  color: black;
 }
 
 em {

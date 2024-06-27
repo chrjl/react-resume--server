@@ -56,9 +56,15 @@ function metaReducer(metaState: MetaState, action: Action) {
 }
 
 const MetaContext = createContext(initialState);
-const MetaDispatchContext = createContext(null as React.Dispatch<Action>);
+const MetaDispatchContext = createContext<React.Dispatch<Action>>(
+  {} as React.Dispatch<Action>
+);
 
-export default function MetaProvider({ children }) {
+interface MetaProviderProps {
+  children: React.ReactNode;
+}
+
+export default function MetaProvider({ children }: MetaProviderProps) {
   const [state, dispatch] = useReducer(metaReducer, initialState);
 
   return (

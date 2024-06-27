@@ -20,8 +20,10 @@ function dataReducer(state: Data, action: Action) {
   }
 }
 
-const DataContext = createContext(null as Data);
-const DataDispatchContext = createContext(null as React.Dispatch<Action>);
+const DataContext = createContext<Data>({} as Data);
+const DataDispatchContext = createContext<React.Dispatch<Action>>(
+  {} as React.Dispatch<Action>
+);
 
 interface DataProviderProps {
   children: React.ReactNode;

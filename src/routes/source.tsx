@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Form, redirect } from 'react-router-dom';
+import YAML from 'yaml';
 import { useMeta, Action as MetaAction } from '../contexts/MetaContext';
 import { Action as DataAction } from '../contexts/DataContext';
 
@@ -74,10 +75,10 @@ export function action({ metaDispatch, dataDispatch }: actionArgs) {
 
 export default function DataUploader() {
   const meta = useMeta();
-  const urlRadioRef = useRef(null as HTMLInputElement);
-  const urlInputRef = useRef(null as HTMLInputElement);
-  const fileRadioRef = useRef(null as HTMLInputElement);
-  const fileInputRef = useRef(null as HTMLInputElement);
+  const urlRadioRef = useRef<HTMLInputElement>(null);
+  const urlInputRef = useRef<HTMLInputElement>(null);
+  const fileRadioRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // set default values if source has not yet been loaded
   const sourceType = meta.source.type || 'remote';
@@ -100,7 +101,7 @@ export default function DataUploader() {
             className="form-check-input"
             defaultChecked={sourceType === 'remote'}
             ref={urlRadioRef}
-            onInput={() => urlInputRef.current.focus()}
+            onInput={() => urlInputRef.current!.focus()}
           />
           <label htmlFor="sourceTypeRemote" className="form-label">
             Fetch remote source
@@ -111,7 +112,7 @@ export default function DataUploader() {
             className="form-control"
             defaultValue={sourceUrl}
             ref={urlInputRef}
-            onFocus={() => (urlRadioRef.current.checked = true)}
+            onFocus={() => (urlRadioRef.current!.checked = true)}
           />
         </fieldset>
 
@@ -124,7 +125,7 @@ export default function DataUploader() {
             className="form-check-input"
             defaultChecked={sourceType === 'file'}
             ref={fileRadioRef}
-            onInput={() => fileInputRef.current.focus()}
+            onInput={() => fileInputRef.current!.focus()}
           />
           <label htmlFor="sourceTypeFile">Upload local file</label>
           <input
@@ -132,7 +133,7 @@ export default function DataUploader() {
             name="file"
             className="form-control"
             ref={fileInputRef}
-            onFocus={() => (fileRadioRef.current.checked = true)}
+            onFocus={() => (fileRadioRef.current!.checked = true)}
           />
         </fieldset>
 

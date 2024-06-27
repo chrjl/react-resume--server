@@ -16,8 +16,9 @@ export function action({ metaDispatch, dataDispatch }: actionArgs) {
     switch (type) {
       case 'remote': {
         const url = formData.get('url') as string;
-        const text = await fetch(url);
-        const data = await text.json();
+        const response = await fetch(url);
+        const text = await response.text();
+        const data = parseData(text);
 
         metaDispatch({
           type: 'UPDATE_SOURCE',
@@ -35,7 +36,8 @@ export function action({ metaDispatch, dataDispatch }: actionArgs) {
 
         if (!file) break;
 
-        const data = JSON.parse(await file.text());
+        const text = await file.text();
+        const data = parseData(text);
 
         metaDispatch({
           type: 'UPDATE_SOURCE',
@@ -56,6 +58,18 @@ export function action({ metaDispatch, dataDispatch }: actionArgs) {
 
     return redirect('/control');
   };
+
+  function parseData(text: string) {
+    try {
+      return JSON.parse(text);
+    } catch {}
+
+    try {
+      return YAML.parse(text);
+    } catch {}
+
+    throw new Error('Invalid data (must be either YAML or JSON)');
+  }
 }
 
 export default function DataUploader() {

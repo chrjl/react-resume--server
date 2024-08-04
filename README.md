@@ -6,7 +6,7 @@ Resume generator built on [React Router 6](https://reactrouter.com), [Bootstrap 
 
 ---
 
-This metarepo depends on the following subprojects:
+This project depends on the following subprojects:
 
 - [`@reactresume/template`](https://github.com/chrjl/reactresume--template)
 - [`@reactresume/jsonresume-parser`](https://github.com/chrjl/reactresume--jsonresume-parser)
@@ -15,6 +15,8 @@ and shared libraries:
 
 - [`@reactresume/components`](https://github.com/chrjl/reactresume--components)
 - [`@reactresume/types`](https://github.com/chrjl/reactresume--types)
+
+and is scaffolded as a [pnpm workspace](https://pnpm.io/workspaces).
 
 ## Development
 
@@ -29,28 +31,26 @@ and shared libraries:
 
 Additional tasks:
 
-- [ ] Implement YAML Resume document (in addition to, or in replacement of, JSON Resume?)
-- [ ] Implement reordering of sections (using flexbox order?)
 - [ ] Generate PDF
   - Generate HTML from `<Document />` using [`react-print`](https://www.npmjs.com/package/@onedoc/react-print)
   - Generate PDF from HTML using [`react-print`](https://react-pdf.org/) and [`react-pdf-html`](https://www.npmjs.com/package/react-pdf-html)
 
 ### Instructions
 
-#### Install dependencies (pnpm workspace)
+#### Install dependencies (set up pnpm workspace)
 
 - Clone this repo, fetch workspace packages (submodules), and check for updates to submodules.
 
   ```console
-  git clone --recurse-submodules git@github.com:chrjl/reactresume--workspace.git
+  git clone --recurse-submodules git@github.com:chrjl/reactresume.git
   ```
 
   or
 
   ```console
-  git clone git@github.com:chrjl/reactresume--workspace.git
+  git clone git@github.com:chrjl/reactresume.git
 
-  cd reactresume--workspace/
+  cd reactresume/
   git submodule update --init
   ```
 
@@ -68,7 +68,7 @@ Additional tasks:
 
 #### Run dev server
 
-Install dependencies, including workspace internal-scoped packages
+Install dependencies, including local workspace packages
 
 ```console
 pnpm install
@@ -98,7 +98,8 @@ Using TypeScript watch server
 
 #### Build static export (Vite)
 
-TBD
+- Build all dependency projects (`tsc`): run `npm run build` in each package directory (`packages/`)
+- Build this project (`vite build`): `npm run build`
 
 #### Deploy to Github Pages
 

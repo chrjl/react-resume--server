@@ -1,8 +1,9 @@
-# `@reactresume/server`
+# React Resume (old version)
 
 Resume generator built on [React Router 6](https://reactrouter.com), [Bootstrap 5](https://getbootstrap.com), and a bespoke React component library that utilizes [styled-components](https://styled-components.com). Accepts files of [JSON Resume](https://jsonresume.org) format from remote URLs or local file uploads.
 
-💻 [Try out the app](https://chrjl.github.io/reactresume)
+💻 [Try out this version of the app](https://chrjl.github.io/reactresume--bootstrap)  
+💻 [Try out the new version of the app (using Material UI)](https://chrjl.github.io/reactresume)
 
 ---
 

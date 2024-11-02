@@ -84,7 +84,7 @@ function App() {
         ],
       },
     ],
-    { basename: '/reactresume' }
+    { basename: '/reactresume--bootstrap' }
   );
 
   return <RouterProvider router={router} />;
